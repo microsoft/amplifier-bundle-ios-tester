@@ -19,7 +19,7 @@ tools:
       # Optional. Empty means "run locally on this Mac". Set to a user@host to
       # drive a remote Mac over SSH — simulator boot was proven headless over
       # bare SSH (2.7s to Booted), so this is a supported topology.
-      ssh_host: "brians-macbook-pro-os"
+      ssh_host: ""
       default_timeout_s: 30
 
 agents:
