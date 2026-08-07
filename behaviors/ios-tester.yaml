@@ -1,0 +1,33 @@
+bundle:
+  name: ios-tester-behavior
+  version: 0.1.0
+  description: |
+    The behavior portion of the ios-tester bundle — adds the ios_inspector tool
+    and specialist agents for booting simulators, driving iOS apps via the accessibility
+    tree, and verifying rendered UI. Can be composed into any bundle that needs iOS
+    simulator or on-device testing capabilities.
+
+tools:
+  - module: tool-ios-inspector
+    source: ../modules/tool-ios-inspector
+    config:
+      # Set explicitly rather than relying on `xcode-select`: if the active
+      # developer dir is CommandLineTools, `simctl` appears missing. DEVELOPER_DIR
+      # takes precedence, is per-process, and needs no sudo.
+      developer_dir: /Applications/Xcode.app/Contents/Developer
+      screenshot_dir: ~/.amplifier/ios-sessions
+      # Optional. Empty means "run locally on this Mac". Set to a user@host to
+      # drive a remote Mac over SSH — simulator boot was proven headless over
+      # bare SSH (2.7s to Booted), so this is a supported topology.
+      ssh_host: "brians-macbook-pro-os"
+      default_timeout_s: 30
+
+agents:
+  include:
+    - ios-tester:ios-operator
+    - ios-tester:ios-visual-tester
+    - ios-tester:ios-debugger
+
+context:
+  include:
+    - ios-tester:context/ios-awareness.md
