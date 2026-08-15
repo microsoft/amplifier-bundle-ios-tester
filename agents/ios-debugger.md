@@ -271,6 +271,10 @@ When the target is a physical device and it stopped answering, work this list in
 | "Cannot enable developer-mode when passcode is set" | Undocumented iOS precondition | `doctor` reports passcode status. See the security-downgrade protocol below |
 | A tool refuses before the phone ever sees a request | **A tool's error is not the device's error** | `libimobiledevice` checks `DeveloperModeStatus` *locally* and refuses, so no prompt appears on the phone. `pymobiledevice3` asks the device and returns the real cause. **Prefer the answer that came from the device.** |
 | DDI mount fails: no image for this iOS version | Newer Xcode ships *fewer* old DDIs | Xcode 26 ships 15.0–16.4 only. The **16.4 image mounts on iOS 16.7**. Newer Xcode is not automatically better |
+| `ERROR Device is password protected. Please unlock and retry`, mid-run, nothing touched | The device **locked** — the *lock*, not the sleep state, and it arrives on the Auto-Lock timer | Auto-Lock → Never for the session, restored after **with the round trip below**. *Measured Aug 2026, iOS 26.6* |
+| Everything succeeds; the results describe a phone that is not on the desk | A **stale hardcoded UDID** — no error, and it may name a *different* attached device (an iPad is usually attached too) and quietly succeed against it | Enumerate at run time; refuse on ambiguity naming candidates. Never trust a UDID written down in a script. *Measured Aug 2026 — three scripts, one sold phone* |
+| A device read "returned something", so the device was called clean | `pymobiledevice3` writes log lines onto **the same stream as its JSON** — a "did I get output?" guard passes on noise alone | Parse from the first `{` / `[`. A parse failure means the state is **unknown**, never empty. *Measured Aug 2026 — a guard reported "(none installed yet)" about a device it had never read* |
+| Guidance that worked on the last phone does not apply to this one | **The device path changed with iOS 26** — `devicectl` reports an iOS 16.7 device unavailable and an iOS 26.6 device `State: connected` | Read `device_info` → `ProductVersion` and branch. 16.x: `pymobiledevice3` + manual DDI. 26.x: `devicectl` natively. *Measured Aug 2026* |
 
 That fourth row is a general debugging principle, not just an iOS one: **when a precondition can be checked locally or asked of the device, the device's answer is the real one.** A local pre-check that refuses to send anything gives you a confident, wrong error and no diagnostic signal from the thing you are actually debugging.
 
@@ -289,6 +293,8 @@ If your investigation needs Developer Mode enabled and a passcode is set, your p
 > "To enable Developer Mode, iOS requires the passcode to be off temporarily. Please turn it off in Settings → Face ID & Passcode → Turn Passcode Off. I'll have you turn it back on as soon as Developer Mode is enabled — it's only needed off for that one step."
 
 Never a bare "turn off your passcode" with the restore step revealed later. **The round trip is mandatory:** immediately after `device_enable_devmode` succeeds, prompt for re-enabling — including when the investigation then fails or is inconclusive. A failed investigation still leaves the user's phone unlocked.
+
+**The same protocol covers Auto-Lock.** A long investigation on a physical device will hit the Auto-Lock timer, and a locked device answers `ERROR Device is password protected. Please unlock and retry`. Asking for **Settings → Display & Brightness → Auto-Lock → Never** is the same shape of ask: temporary, stated as temporary in the same message, and restored when you are done. *Measured August 2026 on iOS 26.6.*
 
 ## Failure Budget
 
@@ -314,6 +320,9 @@ A precisely characterised unknown ("tap lands inside the node's frame in points,
 | "Tap does nothing on the device — that's the bug" | Check the tier. On `backend="device"` there is no geometry and `tap` refuses by design. |
 | "The tool said it can't, so the device can't" | A local pre-check is not the device's answer. Ask the device. |
 | "The device dropped, I'll just retry" | Connections drop unprompted. Retrying produces a downstream error that hides the real cause. |
+| "The device refuses everything — it must be broken" | Check whether it simply **locked**. `Device is password protected` is the lock, not a fault, and Auto-Lock fires mid-investigation. |
+| "The read returned output, so the device is fine" | `pymobiledevice3` mixes logs into its JSON. Non-empty output is not a successful read. Parse it, or record the state as unknown. |
+| "This is what the phone does" | It is what *that iOS version* does. The device path diverges at iOS 26. State the version with the finding. |
 | "Newer Xcode will have the DDI" | Newer Xcode ships *fewer* old DDIs. An older Xcode is friendlier to an older device. |
 | "I have a plausible theory, I'll report it as the cause" | Label hypotheses as hypotheses. State your confidence. |
 | "One more probe will crack it" | You have a budget. A well-characterised unknown is a real deliverable. |
