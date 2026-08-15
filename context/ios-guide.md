@@ -125,6 +125,24 @@ Full key set: `caption`, `estimated_uid`, `platform_identifier`, `spoken_descrip
 
 **So `tap` on `backend="device"` returns an error, not a guess.** The error names WebDriverAgent as the path that would provide geometry. Do not route around this with `tap_xy` — a coordinate you did not get from a tree is exactly the failure mode this bundle exists to prevent, and on a physical device it is a coordinate you cannot even estimate from a labeled frame, only from a picture.
 
+### The device tier moved with iOS 26 — establish the version first
+
+The tier table above is about *capability*. There is a second axis: **which toolchain path reaches the device at all**, and it changed with iOS 26. Measured on the same Mac (macOS 26.x, Xcode 26.x), August 2026:
+
+| Device | `xcrun devicectl` | DDI |
+|---|---|---|
+| iPhone X, **iOS 16.7** | reports the device **unavailable** | manual mount required; Xcode 26 ships 15.0–16.4, and 16.4 mounts on 16.7 |
+| iPhone 12, **iOS 26.6** | **sees and reports the device natively** (`State: connected`) | no longer the manual dance iOS 16 needed |
+
+**Read `device_info` → `ProductVersion` before planning a device run, and branch on it:**
+
+| Device iOS | Path |
+|---|---|
+| **16.x** | `pymobiledevice3` + `libimobiledevice`, manual DDI mount. `devicectl` is not an option |
+| **26.x** | `devicectl` sees the device directly; DDI is largely handled for you. The `pymobiledevice3` path still works |
+
+Neither path is universal. Treating either as universal is how an hour goes into debugging a device that was never broken. When you report device-tier guidance to a human, **say which iOS version it was established on** — on this platform a finding without a version is a finding nobody can act on. (The iOS 26 row is one iPhone 12 on 26.6, not a survey.)
+
 ### What the free device tier IS good for
 
 Genuinely useful, with no Apple Developer account and no signing:
@@ -230,6 +248,8 @@ ios_inspector(operation="terminate", udid=udid, bundle_id="com.example.app")
 `launch` re-foregrounds an already-running app rather than cold-starting it — the app reappears on whatever screen it last showed, not its start screen. Use `terminate` first when you need a genuine cold start.
 
 On `backend="device"`, `install` and `launch` require a signed build. On the free tier they are unavailable; `device_apps` still lets you inspect what is already installed.
+
+**If you are producing that signed build over SSH, read the code-signing lesson in TROUBLESHOOTING.md first.** Measured August 2026 on one Mac, same user, same minute: `security find-identity -v -p codesigning` returned **0 valid identities over ssh and 2 in the GUI session**. `securityd` will not release a private key to a session that cannot present UI, so the build fails at signing with a misleading "no identity found" and nothing in the error points at the session boundary that is actually responsible. The build has to run in the GUI session.
 
 ### Sensing
 
@@ -409,7 +429,12 @@ ios_inspector(operation="device_enable_devmode", udid=device_udid)
 ios_inspector(operation="device_mount_ddi", udid=device_udid)
 ```
 
-`device_enable_devmode` fails when a passcode is set — see the security-downgrade protocol in Section 4. `device_mount_ddi` picks the closest available Developer Disk Image; Xcode 26 ships images for 15.0–16.4 only, and the **16.4 image mounts successfully on an iOS 16.7 device**.
+`device_enable_devmode` fails when a passcode is set — see the security-downgrade protocol in Section 4. `device_mount_ddi` picks the closest available Developer Disk Image; Xcode 26 ships images for 15.0–16.4 only, and the **16.4 image mounts successfully on an iOS 16.7 device**. On an iOS 26 device this manual mount is largely unnecessary — see "The device tier moved with iOS 26" in Section 2, and establish `ProductVersion` before planning the run.
+
+**Two things to hold when reading this tier:**
+
+- **A locked device refuses everything**, with `ERROR Device is password protected. Please unlock and retry`. It is the *lock*, not the sleep state, that matters, and it arrives on the Auto-Lock timer mid-run. Set Auto-Lock → Never for the session and restore it after — with the round trip in Section 4, because it is the same shape of ask as the passcode.
+- **`pymobiledevice3` writes log lines onto the same stream as its JSON.** A parse of its raw stdout fails with `Extra data: line 1 column N`, and — the part that bites — a guard checking merely "did I get output?" is *defeated by the log noise*, because stdout is non-empty even when the query failed outright. **An unreadable device is never assumed clean.** See TROUBLESHOOTING.md.
 
 ---
 
@@ -428,6 +453,18 @@ The second form reads as a security ask with no stated end, and a user is right 
 **The round trip is mandatory.** After `device_enable_devmode` succeeds, your very next message to the user prompts them to re-enable the passcode. Do not batch it into a later step, do not leave it to the final report, and do not silently drop it if the run then fails — a failed run still leaves the user's phone unlocked.
 
 This applies to any future prompt of this shape, not just passcodes.
+
+### The second instance: Auto-Lock
+
+There is now a known second one. A **locked** device answers device operations with:
+
+```
+ERROR Device is password protected. Please unlock and retry
+```
+
+It is the *lock*, not the sleep state, that matters, and it arrives on the Auto-Lock timer partway through a long run — precisely when nobody is holding the phone. The practical fix for a test session is **Settings → Display & Brightness → Auto-Lock → Never**, restored to its original value afterwards. *Measured August 2026 on iOS 26.6.*
+
+Ask for it exactly the way you ask for the passcode: state in the same message that it is temporary and that you will ask for it back, prompt for restoration when the run ends **including when the run ends in failure**, and record it in the report's Security Round Trip table. The setting differs; the protocol does not.
 
 ---
 
@@ -683,7 +720,17 @@ There is no geometry. The tool refuses. Routing around the refusal with `tap_xy`
 
 ### 6. Never ask for a security downgrade without the round trip
 
-Say it is temporary in the same message, and actually prompt for restoration afterwards. See Section 4.
+Say it is temporary in the same message, and actually prompt for restoration afterwards. See Section 4. Two known instances: the device passcode (Developer Mode) and Auto-Lock → Never (a locked device refuses every operation). Same protocol for both.
+
+### 7. Never hardcode a device UDID — ask, and refuse on ambiguity
+
+Measured August 2026: three wrapper scripts each defaulted to the previous iPhone's UDID. The owner changed phones and every script kept aiming at hardware that was no longer attached — **with no error**. A stale UDID either fails several layers from the cause, or names a *different* attached device and quietly succeeds against it.
+
+Enumerate at run time, refuse on ambiguity naming the candidates (an iPad is usually attached too), and let an explicit `udid` always win. This is invariant 1 restated for physical hardware, and the reason it needs restating is that hardware changes hands while a hardcoded default does not.
+
+### 8. An unreadable device is never assumed clean
+
+`pymobiledevice3` writes log lines onto the same stream as its JSON, so a guard that checks "did I get any output?" passes on log noise alone. A parse failure means **you do not know the device's state** — not that the state is empty. Parse from the first `{` or `[`, and treat a failure as a loud failure. Measured August 2026: a guard reported "(none installed yet)" about a device it had never successfully read.
 
 ### Why these are in the tool and not just in prose
 

@@ -131,6 +131,12 @@ On the free device tier the element list carries only `caption`, `estimated_uid`
 
 **Do not route around the refusal with `tap_xy`.** If the user needs on-device interaction, the honest answer is "that requires WebDriverAgent, which needs an Apple Developer account and code signing, and is not implemented in this bundle."
 
+**And establish the device's iOS version before you plan a device run** — the toolchain path changed with iOS 26. Measured on one Mac, August 2026: an **iOS 16.7** device is reported *unavailable* by `xcrun devicectl` and needs the `pymobiledevice3` path with a manual DDI mount; an **iOS 26.6** device is seen natively by `devicectl` (`State: connected`) and DDI is **largely** handled for you. The `pymobiledevice3` path still works on both. Read `device_info` → `ProductVersion` first and branch on it. Neither path is universal, and applying the wrong one costs an hour debugging a device that was never broken.
+
+**The iOS 26 row is one iPhone 12 on 26.6, not a survey.** Report it as "this is what 26.6 did here", never as a guarantee about every 26.x device.
+
+**When you report device-tier guidance to a human, name the iOS version it was established on.** On this platform a finding without a version is a finding nobody can act on.
+
 ## Security-Downgrade Protocol — Read Before Prompting
 
 Enabling Developer Mode requires the device passcode to be **off**. If `doctor` reports a passcode is set and the run needs Developer Mode, your prompt to the user must state **in the same message** that the change is temporary and that you will ask them to restore it:
@@ -140,6 +146,8 @@ Enabling Developer Mode requires the device passcode to be **off**. If `doctor` 
 Never issue a bare "turn off your passcode" and reveal the restore step later. A request to weaken a device's security with no stated end is something a user is right to push back on.
 
 **The round trip is mandatory.** Immediately after `device_enable_devmode` succeeds, your very next message prompts the user to re-enable the passcode. Do not defer it to the final report, and do not silently drop it if the run then fails — a failed run still leaves the user's phone unlocked.
+
+**Auto-Lock is the second instance of this ask.** A **locked** device answers device operations with `ERROR Device is password protected. Please unlock and retry` — it is the lock, not the sleep state, and it arrives on the Auto-Lock timer partway through a long run, exactly when nobody is holding the phone. The fix for a session is **Settings → Display & Brightness → Auto-Lock → Never**, restored afterwards. *Measured August 2026 on iOS 26.6.* Ask for it the same way, restore it the same way, and put it in the Security Round Trip table the same way. The setting differs; the protocol does not.
 
 ## Core Workflow
 
@@ -159,7 +167,7 @@ r = ios_inspector(operation="boot", udid=udid)
 
 Measured **2.7s to `Booted`**, headless, over bare SSH — no GUI session, no visible Simulator.app required. `Booted` means the simulator device is up; it says nothing about your app.
 
-**Pin `udid` in every subsequent call.**
+**Pin `udid` in every subsequent call** — the one you just *enumerated*, never one you remembered or found hardcoded in a script. A stale UDID does not error; it aims at hardware that is no longer there, or at a *different* attached device. See TROUBLESHOOTING.md.
 
 ### Step 2 — Install and launch
 
@@ -266,6 +274,12 @@ You get **3 attempts** on any single operation before you stop and report what y
 | "The screenshot shows data, that's verification" | Empty shells, cached data, and live data look identical. Get a second source. |
 | "I'll ask for the passcode off and explain later" | State it is temporary in the same breath, and prompt for restoration afterwards. |
 | "I'll reuse those coordinates, the screen barely changed" | One scrolled row invalidates every coordinate. Re-dump. |
+| "The UDID in the script is the device" | It is the device the script's author had. Three scripts kept aiming at a sold phone with no error. Enumerate. |
+| "The device refuses everything — it must be broken" | Check whether it simply **locked**. `Device is password protected` is the lock state, not a fault, and Auto-Lock fires mid-run. |
+| "The device read came back with output, so it worked" | `pymobiledevice3` puts log lines on the same stream as its JSON. Non-empty output is not a successful read. Parse it, or call it unknown. |
+| "The query failed but the device is probably clean" | An unreadable device is never assumed clean. That guard reported "(none installed yet)" about a phone it had never read. |
+| "Signing works on this Mac, so it works over SSH" | Measured 0 identities over ssh, 2 in the GUI session. `securityd` will not release the key to a session that cannot show UI. |
+| "This device guidance is how iOS works" | It is how *that iOS version* worked. 16.x and 26.x take different paths. Name the version. |
 
 ## Report Format
 
@@ -276,7 +290,7 @@ You get **3 attempts** on any single operation before you stop and report what y
 | Field | Value |
 |---|---|
 | Tier | simulator / device-free |
-| Target UDID | ... |
+| Target UDID | ... (enumerated this run, not remembered) |
 | Device / runtime | iPhone 15, iOS 17.5 |
 | Screen | 393x852 pt · 1179x2556 px · scale 3.0 |
 | Bundle ID | com.example.app |
@@ -313,6 +327,7 @@ You get **3 attempts** on any single operation before you stop and report what y
 | Setting changed | Restored? |
 |---|---|
 | Device passcode disabled for Developer Mode | YES — user prompted and confirmed |
+| Auto-Lock set to Never for the run | YES — restored to 2 minutes, user confirmed |
 
 ### Summary
 - Tests run: N · Passed: N · Failed: N

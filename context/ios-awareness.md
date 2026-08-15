@@ -49,6 +49,7 @@ Covers **iOS simulator and physical-device UI only**. Route elsewhere for:
 
 - **macOS with Xcode**, not just Command Line Tools. If `xcode-select` points at CommandLineTools, `simctl` appears missing — set `DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer`, which needs **no sudo**.
 - `axe` (`brew install cameroncooke/axe/axe`) for the simulator; `pymobiledevice3` for the device tier
-- Device tier only: cable, Developer Mode enabled, Developer Disk Image mounted
+- Device tier only: cable, Developer Mode enabled, Developer Disk Image mounted. **The path differs by iOS version** — measured Aug 2026, `devicectl` reports an iOS 16.7 device *unavailable* (use `pymobiledevice3` + manual DDI) but sees an iOS 26.6 device natively. Read `ProductVersion` first
+- Building a **signed device build over SSH fails at signing** — measured 0 codesigning identities over ssh vs 2 in the GUI session. The build must run in the Mac's GUI session; see TROUBLESHOOTING.md
 
 **Setup problems are a supported path, not a dead end.** `doctor` reports every host problem at once with its fix; `create_sim` provisions a simulator. The bundle does not install Xcode. If prerequisites are missing, the agents report the exact fix and stop.

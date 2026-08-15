@@ -2,6 +2,8 @@
 
 Field knowledge from real sessions on a real Mac (macOS 26.6, Xcode 26.6, arm64, driven over bare SSH) against a real iPhone X (iPhone10,6, iOS 16.7.16, build 20H392). Every entry below cost time to discover. It is written down here so nobody repeats it.
 
+A second round in **August 2026** moved to an **iPhone 12 on iOS 26.6** and paid for a further set of entries — code signing over SSH, `pymobiledevice3` output parsing, the lock state, stale UDIDs, and the fact that the device tier's story changed with iOS 26. Those entries are dated inline, because on this platform a finding without a version is a finding you cannot act on.
+
 Several of these workarounds are **owned by the tool** — `doctor` detects them and names the fix. This document explains *why*, so you recognise the symptom when the tool's automation is not in the path (a manual `xcrun` invocation, a different host, a future Xcode that moves things again).
 
 ---
@@ -15,6 +17,12 @@ Several of these workarounds are **owned by the tool** — `doctor` detects them
 | `xcrun: error: unable to find utility "simctl"` on a Mac with Xcode installed | `xcode-select` points at CommandLineTools | Set `DEVELOPER_DIR`, **no sudo needed**. See [DEVELOPER_DIR vs xcode-select](#developer_dir-vs-xcode-select) |
 | Device not detected; `doctor` lists USB hubs but no device | A hub/dock/adapter holds **stale downstream port state** | **Re-seat the adapter, not the phone.** See [Re-seat the adapter, not the device](#re-seat-the-adapter-not-the-device) |
 | Device was working, then vanished; nobody touched anything | Connections drop **unprompted** | Detect and fail loudly; do not retry blindly. See [Connections drop unprompted](#connections-drop-unprompted) |
+| Signing fails: "no signing identity found" over SSH, but the same build signs by hand | `securityd` will not release a private key to a session that cannot present UI | Run the build **in the GUI session** via Apple Events. See [Code signing cannot reach the keychain over SSH](#code-signing-cannot-reach-the-keychain-over-ssh) |
+| Build succeeds; the install step cannot find the `.app` | `rsync --delete` re-synced over the build products | Never re-sync between build and install. See [rsync --delete wipes the build products](#rsync---delete-wipes-the-build-products) |
+| `json.load` on `pymobiledevice3` output: `Extra data: line 1 column N` | Log lines share stdout with the JSON payload | Parse from the first `{` / `[`; fail **loudly**. See [pymobiledevice3 mixes logs into its JSON](#pymobiledevice3-mixes-logs-into-its-json) |
+| `ERROR Device is password protected. Please unlock and retry` | The device is **locked** — the sleep state is irrelevant | Auto-Lock → Never for the run, restored after. See [A locked device refuses everything](#a-locked-device-refuses-everything) |
+| Every command succeeds, against a phone that is not on the desk | A hardcoded UDID went stale when the hardware changed | Ask usbmux; refuse on ambiguity. See [A hardcoded UDID goes stale silently](#a-hardcoded-udid-goes-stale-silently) |
+| Device guidance that worked on one phone does not apply to another | The device tier's story **changed with iOS 26** | Branch on `ProductVersion`. See [The device path differs by iOS version](#the-device-path-differs-by-ios-version) |
 | `Cannot enable developer-mode when passcode is set` | Undocumented iOS precondition | Passcode off temporarily — **with the round trip**. See [The passcode blocker](#the-passcode-blocker) |
 | A tool refuses and the phone never shows a Developer Mode prompt | The tool checked the precondition **locally** and never asked the device | Use `pymobiledevice3`. See [A tool's error is not the device's error](#a-tools-error-is-not-the-devices-error) |
 | DDI mount fails: no Developer Disk Image for this iOS version | Each Xcode release **drops** older DDIs | An **older** Xcode is friendlier to an older device; and a nearby image often mounts. See [Newer Xcode is not automatically better](#newer-xcode-is-not-automatically-better) |
@@ -73,6 +81,74 @@ brew install cameroncooke/axe/axe
 
 See [A tool's error is not the device's error](#a-tools-error-is-not-the-devices-error). Short version: for anything that must reach the device, `pymobiledevice3` asks the device and returns the real cause. `libimobiledevice` answers some questions locally and refuses before sending anything, which produces a confident wrong error and no diagnostic signal from the device.
 
+### pymobiledevice3 mixes logs into its JSON
+
+**Symptom:** parsing `pymobiledevice3` output fails:
+
+```
+json.decoder.JSONDecodeError: Extra data: line 1 column 143 (char 142)
+```
+
+**Cause:** `pymobiledevice3` writes INFO/ERROR log lines onto **the same stream as the JSON payload**. `json.load(stdin)` parses the first value it finds and then chokes on the log line sitting behind it.
+
+**The exception is the harmless half.** The dangerous half is that a guard of the shape *"did I get any output at all?"* is **defeated by the log noise** — stdout is non-empty even when the query failed completely. Measured August 2026: a duplicate-app guard reported `(none installed yet)` about a device it had never successfully read. On a freshly-set-up phone that answer happened to be true, which is exactly how it would have stayed hidden until it mattered.
+
+**Fix, for anything parsing this tool's output:**
+
+1. **Find the first `{` or `[` and parse from there.** Do not assume stdout begins with JSON.
+2. **Treat a parse failure as a loud failure, never as an empty result.** An unreadable device is never assumed clean.
+3. **Never gate on "output is non-empty".** Gate on "output parsed, and here is what it says".
+
+**Inside this bundle:** `device_elements` already does the right thing — an unparseable payload raises. `device_apps` is the softer case: it falls back to `apps: None` and puts the text in `raw_stdout`, so a caller reading only `apps` sees nothing where it should see an error. **If you consume `device_apps`, check `raw_stdout` before concluding a device has no apps installed.**
+
+---
+
+## Building and Signing for a Device
+
+### Code signing cannot reach the keychain over SSH
+
+**Symptom:** a device build fails at the signing step — "no signing identity found", or no matching provisioning profile — on a Mac that plainly has a valid identity. Run by hand in Terminal on the same machine, the same build signs fine.
+
+**Cause:** measured on one Mac, same user, same minute, August 2026:
+
+| Session | `security find-identity -v -p codesigning` |
+|---|---|
+| over `ssh` | **0 valid identities** |
+| GUI (Terminal.app) | **2 valid identities** |
+
+`securityd` will not release a private key to a session that cannot present UI. Ask it directly over ssh and it says so:
+
+```
+$ security show-keychain-info
+User interaction is not allowed.
+```
+
+The login keychain is unlocked **for the GUI session**, and an ssh session is not that session. Neither of the two reflexes helps: `security unlock-keychain` needs the password on the command line and still leaves the ACL demanding UI, and `sudo` moves you to a *different* user's keychain rather than into the graphical session. The session boundary is the thing, and no amount of privilege crosses it.
+
+**Fix — do not fight the keychain; move the build into the session that already has it.** Apple Events reach the GUI session from ssh, so `osascript` can ask Terminal.app to run the build where the keychain is live. The shape that works:
+
+1. Write the build command into a script.
+2. Have Terminal.app run it, redirecting stdout and stderr to a file and echoing `$?` into a second file.
+3. Poll for the exit-code file, replay the captured output, and **exit with the build's code**.
+
+Step 3 is not decoration. Without it the ssh caller sees `osascript`'s exit code rather than the build's, and a failed build reports success — the same class of silent-wrong-result this bundle exists to prevent, one layer down.
+
+**The gotcha that costs the next hour:** the bridged session starts in a **different working directory**. A relative `./scripts/build.sh` dies with `No such file or directory` even though it is plainly there. **Hand the bridge absolute paths** — for the script, for the project, and for the output files.
+
+**Why this is worth its own section:** an agent driving a device build over ssh otherwise fails at signing with a misleading "no identity found" and no clue why. The identity exists, the certificate is valid, the profile is installed, and nothing in the error points at the session boundary that is actually responsible.
+
+*Measured August 2026 on macOS 26.x / Xcode 26.x.*
+
+### `rsync --delete` wipes the build products
+
+**Symptom:** `xcodebuild` succeeds on the remote Mac. The install step then cannot find the `.app`.
+
+**Cause:** a sync → build → sync → install loop. The build products exist **only on the build host** — they were never in the source tree the sync came from. The second `rsync --delete` sees files that are not in the source and does exactly what it was told to do.
+
+**Fix:** sync **before** the build, and **never between build and install**. If a post-build sync is genuinely needed, pull *from* the build host rather than pushing *to* it, and exclude the build output directory from `--delete`.
+
+A small mistake with an expensive tail: every occurrence costs a full rebuild cycle. *Observed August 2026.*
+
 ---
 
 ## Physical Device Connectivity
@@ -98,6 +174,38 @@ See [A tool's error is not the device's error](#a-tools-error-is-not-the-devices
 **Fix:** there is no prevention — the correct response is **detection**. The tool detects mid-run disappearance and **fails loudly, naming the disappearance**, rather than letting a downstream operation emit a confusing secondary error.
 
 **For agents:** a device that vanished mid-run is **exempt from the retry budget**. Do not retry into it. A retry against a device that is no longer attached produces an error about whatever operation you retried, several layers away from the real cause. Report the disappearance as the finding, and go to [Re-seat the adapter](#re-seat-the-adapter-not-the-device).
+
+### A locked device refuses everything
+
+**Symptom:** an operation that worked minutes ago now returns:
+
+```
+ERROR Device is password protected. Please unlock and retry
+```
+
+Nobody touched the cable or the configuration.
+
+**Cause:** the device **locked**. Not slept — *locked*. It is the lock state that matters, and it arrives on the Auto-Lock timer partway through a long run, which is precisely when nobody is holding the phone. "The screen was on a minute ago" is not evidence either way.
+
+**Fix for a test session:** **Settings → Display & Brightness → Auto-Lock → Never**, restored to its original value afterwards.
+
+**That is a security downgrade, and it takes the same round trip as the passcode ask.** Say in the same message that it is temporary and that you will ask for it back; then actually prompt for restoration when the run ends — including when the run ends in failure. The protocol is [The passcode blocker](#the-passcode-blocker) verbatim; only the setting differs. Record it in the report's Security Round Trip table alongside the passcode.
+
+*Measured August 2026 on iOS 26.6.*
+
+### A hardcoded UDID goes stale silently
+
+**Symptom:** every command succeeds and the results describe a device that is not the one on the desk — an app that should be installed is missing, a screenshot shows an unfamiliar home screen, a build "deploys" and never appears.
+
+**Cause:** a UDID hardcoded as a default. Measured August 2026: **three separate wrapper scripts** each carried the previous iPhone's UDID as their default target. The owner changed phones; every script kept aiming at hardware that was no longer attached, and **nothing errored**. A stale UDID either fails several layers from the cause, or — the worse case — names a *different* attached device and quietly succeeds against it.
+
+**Fix — the shape that holds:**
+
+1. **Ask, do not remember.** Enumerate at run time (`pymobiledevice3 usbmux list`, `idevice_id -l`).
+2. **Refuse on ambiguity, naming the candidates.** An iPad is usually attached too. "Pick the first one" is how an app lands on the wrong device.
+3. **An explicit UDID always wins.** A caller who names one gets it, with no discovery step.
+
+This is the stance `list_targets` already takes for simulators. **It applies to physical devices for exactly the same reason,** and it applies to any script wrapped around this tool: a default UDID baked into a script is a stale UDID waiting for its owner to buy a new phone.
 
 ---
 
@@ -154,6 +262,28 @@ A local pre-check that short-circuits gives you a fast, confident, wrong error, 
 **Fix, and the surprising part:** the **16.4 image mounted successfully on an iOS 16.7 device**. DDIs are more tolerant of minor-version mismatch than the exact-match assumption suggests. `device_mount_ddi` picks the closest available image rather than requiring an exact match, and `doctor` reports the DDIs Xcode ships **alongside the device's iOS version** so the gap is visible before you try.
 
 **If no nearby image exists:** install an **older** Xcode alongside the current one and point `DEVELOPER_DIR` at it. For an old device, an older Xcode is the friendlier toolchain. "Update Xcode" is the wrong reflex here.
+
+### The device path differs by iOS version
+
+**Symptom:** device guidance that worked on one phone does not apply to another. `xcrun devicectl list devices` reports one device as unavailable and another as `State: connected`. DDI mounting is a manual dance on one and a non-event on the other. Nothing about the Mac changed between the two.
+
+**Cause:** **the device tier's story moved with iOS 26.** Measured on the same Mac (macOS 26.x, Xcode 26.x), August 2026:
+
+| Device | `xcrun devicectl` | DDI |
+|---|---|---|
+| iPhone X, **iOS 16.7** | reports the device **unavailable** | manual mount required — Xcode 26 ships 15.0–16.4, and the 16.4 image mounts on 16.7 |
+| iPhone 12, **iOS 26.6** | **sees and reports the device natively** (`State: connected`) | no longer the manual dance iOS 16 needed |
+
+**Fix:** branch on the device's iOS version, and state which version any piece of device guidance applies to:
+
+| Device iOS | Path |
+|---|---|
+| **16.x** | `pymobiledevice3` + `libimobiledevice`, manual DDI mount. `devicectl` is not an option |
+| **26.x** | `devicectl` sees the device directly and DDI is largely handled for you. The `pymobiledevice3` path still works |
+
+Read the version first — `device_info` → `ProductVersion` — and pick the path from it. **Neither path is universal**, and presenting either one as universal is how an hour goes into debugging a device that was never broken.
+
+*Both rows measured August 2026. The iOS 26 row is a single-device field report — one iPhone 12 on 26.6, not a survey — so treat it as "this is what 26.6 did here", not as a guarantee about every 26.x device.*
 
 ### tap refuses on a physical device
 
