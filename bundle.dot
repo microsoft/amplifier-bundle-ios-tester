@@ -1,82 +1,82 @@
-// This repository packages a set of AI helpers that drive and inspect iOS apps on a simulator or device — testing them, checking how they look, and diagnosing what went wrong.
-
+// ios-tester: an Amplifier bundle that equips an AI agent to build, install, and
+// interact with iOS apps on a Simulator (and read-only inspect physical devices).
 digraph ios_tester {
     rankdir=LR
     fontname="Helvetica"
     fontsize=12
-    label="iOS Tester — AI Helpers That Drive and Inspect iOS Apps\nA bundle repository: v0.1.0"
+    label="iOS App Testing Toolkit\nv0.1.0 — drive, inspect & verify iOS apps on Simulator"
     labelloc=t
     labeljust=c
     nodesep=0.6
     ranksep=0.7
     bgcolor="white"
-    source_hash="14175dd7a1411bdd8753f083056067f072cf6a70c5481a21e834a0a3cca25c04"
+    source_hash="95a87be3b8afc27339b8e7c124d85566208eea77e076fbf33a5415acc1f21829"
 
     node [fontname="Helvetica", fontsize=11, style="filled,rounded"]
     edge [fontname="Helvetica", fontsize=9]
 
-    root_ios_tester [label="iOS Tester (main entry point)\nv0.1.0\n0 tools · 0 agents\n~879 tok aggregate", shape=box, fillcolor="#80cbc4", style="filled,rounded,bold", penwidth=2]
+    root_ios_tester [label="iOS Tester\nRoot Bundle\nv0.1.0\n0 tools · 0 agents\n~879 tok aggregate", shape=box, fillcolor="#80cbc4", style="filled,rounded,bold", penwidth=2]
 
     subgraph cluster_behaviors {
-        label="Capability Package — what this repo adds"
+        label="Behaviors — capabilities the bundle adds"
         style="filled"
         fillcolor="#f9f9f9"
         color="#999999"
 
-        beh_ios_tester_behavior [label="iOS Testing Capability\nBundles the helpers, the tool, and the intro notes\n1 tools · 1 ctx\n~3057 tok", shape=box, fillcolor="#e0f2f1", style="filled,rounded"]
+        beh_ios_tester_behavior [label="iOS Testing Capability\n1 tools · 1 ctx\n~3161 tok", shape=box, fillcolor="#e0f2f1", style="filled,rounded"]
     }
 
     subgraph cluster_agents {
-        label="AI Helpers — each with a specialty"
+        label="Agents — specialists the AI can delegate to"
         style="filled"
         fillcolor="#f9f9f9"
         color="#999999"
 
-        agt_ios_debugger [label="Troubleshooter\nFigures out why something broke\n~628 tok desc", shape=box, fillcolor="#c8e6c9", style="filled,rounded"]
-        agt_ios_operator [label="App Driver\nTaps, types, and navigates the app\n~626 tok desc", shape=box, fillcolor="#c8e6c9", style="filled,rounded"]
-        agt_ios_visual_tester [label="Appearance Checker\nSpots layout and visual problems\n~631 tok desc", shape=box, fillcolor="#c8e6c9", style="filled,rounded"]
+        agt_ios_debugger [label="iOS Debugger\nDiagnoses crashes & failures\n~628 tok desc", shape=box, fillcolor="#c8e6c9", style="filled,rounded"]
+        agt_ios_operator [label="iOS Operator\nDrives app install/launch/taps\n~626 tok desc", shape=box, fillcolor="#c8e6c9", style="filled,rounded"]
+        agt_ios_visual_tester [label="iOS Visual Tester\nChecks screens look correct\n~631 tok desc", shape=box, fillcolor="#c8e6c9", style="filled,rounded"]
     }
 
     subgraph cluster_modules {
-        label="Built-in Tool — the hands and eyes"
+        label="Modules — underlying tool code"
         style="filled"
         fillcolor="#f9f9f9"
         color="#999999"
 
-        mod_tool_ios_inspector [label="iOS Inspector\nControls the simulator and reads the screen", shape=box, fillcolor="#bbdefb", style="filled,rounded"]
+        mod_tool_ios_inspector [label="iOS Inspector\nSimulator control engine", shape=box, fillcolor="#bbdefb", style="filled,rounded"]
     }
 
     subgraph cluster_context {
-        label="Background Notes — always-on briefing"
+        label="Context Files — reference knowledge"
         style="filled"
         fillcolor="#f9f9f9"
         color="#999999"
 
-        ctx_ios_awareness_md [label="Intro to iOS Testing\nios-awareness.md\n~861 tok", shape=box, fillcolor="#e1bee7", style="filled,rounded"]
+        ctx_ios_awareness_md [label="iOS Testing Guide\nios-awareness.md\n~965 tok", shape=box, fillcolor="#e1bee7", style="filled,rounded"]
     }
 
     subgraph cluster_legend {
-        label="Legend — what each color means"
+        label="Legend"
         style="filled"
         fillcolor="white"
         color="#cccccc"
         fontsize=9
 
-        leg_root [label="main entry point", shape=box, fillcolor="#80cbc4", style="filled,rounded,bold", fontsize=9]
-        leg_behavior [label="capability package", shape=box, fillcolor="#e0f2f1", style="filled,rounded", fontsize=9]
-        leg_agent [label="AI helper", shape=box, fillcolor="#c8e6c9", style="filled,rounded", fontsize=9]
-        leg_module [label="built-in tool", shape=box, fillcolor="#bbdefb", style="filled,rounded", fontsize=9]
-        leg_provider [label="AI model source", shape=box, fillcolor="#e0e0e0", style="filled,rounded", fontsize=9]
-        leg_context [label="background notes", shape=box, fillcolor="#e1bee7", style="filled,rounded", fontsize=9]
-        leg_standalone [label="ready-to-use setup", shape=box, fillcolor="#80cbc4", style="filled,rounded", fontsize=9]
-        leg_experiment [label="experimental", shape=box, fillcolor="#e1bee7", style="filled,rounded", fontsize=9]
-        leg_ext_cost [label="borrowed, adds reading cost", shape=box, fillcolor="#80cbc4", style="dashed", color="red", penwidth=2, fontsize=9]
-        leg_ext_muted [label="borrowed, no added cost", shape=box, fillcolor="#f5f5f5", style="dashed", fontsize=9]
+        leg_root [label="root bundle", shape=box, fillcolor="#80cbc4", style="filled,rounded,bold", fontsize=9]
+        leg_behavior [label="behavior", shape=box, fillcolor="#e0f2f1", style="filled,rounded", fontsize=9]
+        leg_agent [label="agent", shape=box, fillcolor="#c8e6c9", style="filled,rounded", fontsize=9]
+        leg_module [label="module", shape=box, fillcolor="#bbdefb", style="filled,rounded", fontsize=9]
+        leg_provider [label="provider", shape=box, fillcolor="#e0e0e0", style="filled,rounded", fontsize=9]
+        leg_context [label="context", shape=box, fillcolor="#e1bee7", style="filled,rounded", fontsize=9]
+        leg_standalone [label="standalone", shape=box, fillcolor="#80cbc4", style="filled,rounded", fontsize=9]
+        leg_experiment [label="experiment", shape=box, fillcolor="#e1bee7", style="filled,rounded", fontsize=9]
+        leg_ext_cost [label="ext+cost", shape=box, fillcolor="#80cbc4", style="dashed", color="red", penwidth=2, fontsize=9]
+        leg_ext_muted [label="ext+no-cost", shape=box, fillcolor="#f5f5f5", style="dashed", fontsize=9]
     }
 
-    disclaimer [label="How to read the numbers:\n\"tok\" = roughly how much reading the AI does (~4 characters per token)\nSolid outline = lives in this repo (counted here)\nDashed + red = borrowed from elsewhere, adds reading cost (not counted)\nDashed + grey = borrowed from elsewhere, adds no cost\nNot counted: work done by helpers, anything decided while running", shape=note, fillcolor="#eceff1", style="filled", fontsize=9]
+    disclaimer [label="Token estimates: ~4 chars/token\nSolid border = local (counted)\nDashed + red = external, hidden cost (not counted)\nDashed + muted = external, no cost\nExcludes: sub-session costs, runtime-dynamic", shape=note, fillcolor="#eceff1", style="filled", fontsize=9]
 
-    ext_githttps___github_com_microsoft_amplifier_foundation_main [label="Amplifier Foundation\nShared building blocks borrowed from elsewhere\n(external, adds reading cost)", shape=box, fillcolor="#80cbc4", style="dashed", color="red", penwidth=2]
+    ext_githttps___github_com_microsoft_amplifier_foundation_main [label="Amplifier Foundation\namplifier-foundation\n(external, cost)", shape=box, fillcolor="#80cbc4", style="dashed", color="red", penwidth=2]
 
     root_ios_tester -> ext_githttps___github_com_microsoft_amplifier_foundation_main [style=dashed]
     root_ios_tester -> beh_ios_tester_behavior [label="composes"]
