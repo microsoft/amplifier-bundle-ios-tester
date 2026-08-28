@@ -275,6 +275,8 @@ When the target is a physical device and it stopped answering, work this list in
 | Everything succeeds; the results describe a phone that is not on the desk | A **stale hardcoded UDID** — no error, and it may name a *different* attached device (an iPad is usually attached too) and quietly succeed against it | Enumerate at run time; refuse on ambiguity naming candidates. Never trust a UDID written down in a script. *Measured Aug 2026 — three scripts, one sold phone* |
 | A device read "returned something", so the device was called clean | `pymobiledevice3` writes log lines onto **the same stream as its JSON** — a "did I get output?" guard passes on noise alone | Parse from the first `{` / `[`. A parse failure means the state is **unknown**, never empty. *Measured Aug 2026 — a guard reported "(none installed yet)" about a device it had never read* |
 | Guidance that worked on the last phone does not apply to this one | **The device path changed with iOS 26** — `devicectl` reports an iOS 16.7 device unavailable and an iOS 26.6 device `State: connected` | Read `device_info` → `ProductVersion` and branch. 16.x: `pymobiledevice3` + manual DDI. 26.x: `devicectl` natively. *Measured Aug 2026* |
+| A user reports a crash and you have a plausible theory and no evidence | Pulling the actual `.ips` beats every hypothesis — it ends debates competing theories cannot | `pymobiledevice3 crash ls` / `crash pull <dir>` / `crash parse <file>.ips`. **Known gap:** `ios_inspector` has no `crash_pull` operation today — run the manual `pymobiledevice3` invocation directly (see FIELD-NOTES-2026-08.md §3) |
+| `process-id-for-bundle-id` used as an `if` condition always reports "running" | The command's **exit code carries no information** — only stdout does | Parse stdout: a literal `0` means *not running*, never a PID; no parsable integer at all means UNKNOWN — report it as UNKNOWN, never silently as "not running" |
 
 That fourth row is a general debugging principle, not just an iOS one: **when a precondition can be checked locally or asked of the device, the device's answer is the real one.** A local pre-check that refuses to send anything gives you a confident, wrong error and no diagnostic signal from the thing you are actually debugging.
 
@@ -326,6 +328,7 @@ A precisely characterised unknown ("tap lands inside the node's frame in points,
 | "Newer Xcode will have the DDI" | Newer Xcode ships *fewer* old DDIs. An older Xcode is friendlier to an older device. |
 | "I have a plausible theory, I'll report it as the cause" | Label hypotheses as hypotheses. State your confidence. |
 | "One more probe will crack it" | You have a budget. A well-characterised unknown is a real deliverable. |
+| "The transcript shows zero terminal events, so nothing happened" | An absence can mean a terminal event arrived *after* the transcript writer closed and a guard correctly dropped it. Verify the mechanism producing the absence, not just the absence itself — otherwise "the bug did not happen" and "the test did not run" are indistinguishable. |
 
 ## Root Cause Catalogue
 
@@ -376,6 +379,11 @@ Fix: `doctor` reports passcode status. Use the tool that actually asks the devic
 Signature: plausible screen, `Last successful poll: never` in the dump, network errors in the log.
 Cause: the app caught its network exceptions and rendered a seeded or cached state.
 Fix: never accept a screenshot as proof of live data — require independent confirmation.
+
+### Unexplained scroll-related `SIGABRT` under fast list updates
+Signature: `SIGABRT` inside `UICollectionView` scroll-target validation, under live-updating list content. Reproduces easily under load, almost never in a calm manual test.
+Cause: `ScrollViewProxy.scrollTo` called synchronously from `.onChange`/`.onAppear` while the `List` is mid-diff. At a high update rate (a live feed at roughly 10 Hz was the trigger in one field report) the scroll target gets validated against collection state that is already gone.
+Fix: defer every programmatic scroll past the current update pass (`DispatchQueue.main.asyncAfter(deadline: .now() + …)` or an equivalent hop). Do not command a scroll from inside the update that changes what you are scrolling to. The crash rate scales with update frequency, so it is invisible to a hand-driven test and obvious to an automated one — expect this class when driving a screen with fast-changing content.
 
 ## Report Format
 

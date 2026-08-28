@@ -6,6 +6,8 @@ A second round in **August 2026** moved to an **iPhone 12 on iOS 26.6** and paid
 
 Several of these workarounds are **owned by the tool** — `doctor` detects them and names the fix. This document explains *why*, so you recognise the symptom when the tool's automation is not in the path (a manual `xcrun` invocation, a different host, a future Xcode that moves things again).
 
+**See also:** [FIELD-NOTES-2026-08.md](FIELD-NOTES-2026-08.md) — a second, additive set of lessons from an extended real-device project: the full ssh→GUI signing bridge, the unsigned-simulator-leg split, physical-device install and crash-log operations, version discipline, and evidence-verification practice.
+
 ---
 
 ## Quick Reference: Symptom → Cause → Fix
@@ -132,6 +134,8 @@ The login keychain is unlocked **for the GUI session**, and an ssh session is no
 3. Poll for the exit-code file, replay the captured output, and **exit with the build's code**.
 
 Step 3 is not decoration. Without it the ssh caller sees `osascript`'s exit code rather than the build's, and a failed build reports success — the same class of silent-wrong-result this bundle exists to prevent, one layer down.
+
+**A working, drop-in implementation of this bridge ships at [`scripts/guirun.sh`](../scripts/guirun.sh)**, and the full headless build-and-sign workflow (signing-identity resolution, the free-tier device build, built-bundle Info.plist assertion, artifact verification) is written up in the `ios-headless-build-and-sign` skill (`skills/ios-headless-build-and-sign/SKILL.md`). This bundle does not mount `tool-skills` itself, so the skill is not auto-discovered in a session — read the file directly, or register this repo's `skills/` directory in your own `tool-skills` config.
 
 **The gotcha that costs the next hour:** the bridged session starts in a **different working directory**. A relative `./scripts/build.sh` dies with `No such file or directory` even though it is plainly there. **Hand the bridge absolute paths** — for the script, for the project, and for the output files.
 
