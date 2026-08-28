@@ -131,6 +131,10 @@ On the free device tier the element list carries only `caption`, `estimated_uid`
 
 **Do not route around the refusal with `tap_xy`.** If the user needs on-device interaction, the honest answer is "that requires WebDriverAgent, which needs an Apple Developer account and code signing, and is not implemented in this bundle."
 
+**Because there is no synthetic tap on this tier, a device UI test must drive itself** — the assertions live inside an XCUITest bundle running on the device, not something poked from the host.
+
+**State this before planning any device round, not after:** free-tier provisioning expires every seven days. If a build that worked yesterday will not launch today, check profile expiry before forming any other hypothesis.
+
 **And establish the device's iOS version before you plan a device run** — the toolchain path changed with iOS 26. Measured on one Mac, August 2026: an **iOS 16.7** device is reported *unavailable* by `xcrun devicectl` and needs the `pymobiledevice3` path with a manual DDI mount; an **iOS 26.6** device is seen natively by `devicectl` (`State: connected`) and DDI is **largely** handled for you. The `pymobiledevice3` path still works on both. Read `device_info` → `ProductVersion` first and branch on it. Neither path is universal, and applying the wrong one costs an hour debugging a device that was never broken.
 
 **The iOS 26 row is one iPhone 12 on 26.6, not a survey.** Report it as "this is what 26.6 did here", never as a guarantee about every 26.x device.
