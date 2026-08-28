@@ -135,6 +135,8 @@ The login keychain is unlocked **for the GUI session**, and an ssh session is no
 
 Step 3 is not decoration. Without it the ssh caller sees `osascript`'s exit code rather than the build's, and a failed build reports success — the same class of silent-wrong-result this bundle exists to prevent, one layer down.
 
+**A working, drop-in implementation of this bridge ships at [`scripts/guirun.sh`](../scripts/guirun.sh)**, and the full headless build-and-sign workflow (signing-identity resolution, the free-tier device build, built-bundle Info.plist assertion, artifact verification) is written up in the `ios-headless-build-and-sign` skill (`skills/ios-headless-build-and-sign/SKILL.md`). This bundle does not mount `tool-skills` itself, so the skill is not auto-discovered in a session — read the file directly, or register this repo's `skills/` directory in your own `tool-skills` config.
+
 **The gotcha that costs the next hour:** the bridged session starts in a **different working directory**. A relative `./scripts/build.sh` dies with `No such file or directory` even though it is plainly there. **Hand the bridge absolute paths** — for the script, for the project, and for the output files.
 
 **Why this is worth its own section:** an agent driving a device build over ssh otherwise fails at signing with a misleading "no identity found" and no clue why. The identity exists, the certificate is valid, the profile is installed, and nothing in the error points at the session boundary that is actually responsible.
