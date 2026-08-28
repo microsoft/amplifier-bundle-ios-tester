@@ -143,6 +143,17 @@ The tier table above is about *capability*. There is a second axis: **which tool
 
 Neither path is universal. Treating either as universal is how an hour goes into debugging a device that was never broken. When you report device-tier guidance to a human, **say which iOS version it was established on** — on this platform a finding without a version is a finding nobody can act on. (The iOS 26 row is one iPhone 12 on 26.6, not a survey.)
 
+### Additional device-tier doctrine (field-tested, August 2026)
+
+Further lessons from an extended real-device project, condensed to what `ios-operator` and `ios-debugger` both need. Full narrative: `docs/FIELD-NOTES-2026-08.md`.
+
+- **There is no synthetic tap on the free device tier, ever.** `tap`, `tap_xy`, and `type_text` on `backend="device"` refuse by design (see above). A device UI test must drive itself from inside an XCUITest bundle rather than being poked from the host.
+- **Free provisioning expires every seven days.** A build that worked yesterday and will not launch today is far more often an expired profile than a regression — check this before forming any other hypothesis.
+- **`pymobiledevice3 developer dvt process-id-for-bundle-id` carries no information in its exit code — parse stdout.** A literal `0` on stdout means *not running*, never a PID. No parsable integer at all means UNKNOWN, and unknown must be reported as unknown, never silently treated as "not running".
+- **Scope every device call in a detect/kill loop to an explicit UDID.** `--udid` defaults to "the first USB device", not one you chose. An unscoped detect-then-kill loop can answer about, and act on, whichever device usbmux enumerated first, while the real operation goes elsewhere.
+- **When `xcrun devicectl` reports a device unavailable, it may still be reachable.** Try `xcrun xctrace list devices` (filter out simulators), or enumerate entirely through `pymobiledevice3 usbmux list`, before concluding the device is unreachable.
+- **Two calls for device recon before blaming the app:** `pymobiledevice3 mounter list` (is the DDI mounted?) and `pymobiledevice3 lockdown info` (`ProductVersion`, `DeveloperModeStatus`, `PasswordProtected`, `ActivationState`, `CPUArchitecture`). Run this pair before forming any hypothesis about a misbehaving device.
+
 ### What the free device tier IS good for
 
 Genuinely useful, with no Apple Developer account and no signing:
