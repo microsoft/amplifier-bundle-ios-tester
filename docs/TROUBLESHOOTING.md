@@ -6,6 +6,8 @@ A second round in **August 2026** moved to an **iPhone 12 on iOS 26.6** and paid
 
 Several of these workarounds are **owned by the tool** — `doctor` detects them and names the fix. This document explains *why*, so you recognise the symptom when the tool's automation is not in the path (a manual `xcrun` invocation, a different host, a future Xcode that moves things again).
 
+**See also:** [FIELD-NOTES-2026-08.md](FIELD-NOTES-2026-08.md) — a second, additive set of lessons from an extended real-device project: the full ssh→GUI signing bridge, the unsigned-simulator-leg split, physical-device install and crash-log operations, version discipline, and evidence-verification practice.
+
 ---
 
 ## Quick Reference: Symptom → Cause → Fix
