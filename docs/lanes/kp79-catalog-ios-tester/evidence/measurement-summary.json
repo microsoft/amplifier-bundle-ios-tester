@@ -30,6 +30,6 @@
     "note": "identical before and after -- frontmatter-only change, verified"
   },
   "tests": { "main": "165 passed", "branch": "165 passed", "note": "modules/tool-ios-inspector; no test references any description" },
-  "ci": "NONE -- .github/ does not exist in this repo",
+  "ci": "No repo-owned workflows -- .github/ does not exist and gh run list returns none. BUT PR #3 carries one org-level check, license/cla (microsoft-github-policy-service): conclusion SUCCESS, status COMPLETED, 2026-09-07T18:03:57Z, mergeable MERGEABLE. The PR was therefore marked ready per the deliverable condition.",
   "spend_usd": 0.00
 }

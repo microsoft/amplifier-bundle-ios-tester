@@ -200,8 +200,14 @@ Within the frontmatter, only the `description` value changed: `meta.name`, `mode
 - **Tests:** `modules/tool-ios-inspector` — **165 passed** on the branch, **165 passed** on a
   merge-base worktree. Identical; the change is test-neutral. No test in this repo references any
   description.
-- **CI: this repo has NONE.** `.github/` does not exist. Stated plainly rather than implying a green
-  run that does not exist. The `165 passed` figure above is a local run, not a CI result.
+- **CI — corrected, and the correction matters.** An earlier revision of this note said flatly "this
+  repo has NONE". That is true of **repo-owned workflows** — `.github/` does not exist, `git ls-files`
+  matches 0 paths under `.github/`, and `gh run list` returns no workflow runs — but it was **wrong
+  about the PR's checks**. PR #3 carries one **org-level** check, `license/cla`
+  (`microsoft-github-policy-service`), and it reports **`conclusion: SUCCESS`, `status: COMPLETED`**
+  at 2026-09-07T18:03:57Z, with `mergeable: MERGEABLE`. So the deliverable's condition — *"marked
+  ready when its own CI is green"* — **is satisfied**: there is a check, it is green, and nothing is
+  pending. The `165 passed` figures above remain local runs, not CI results.
 - **Cross-cutting finding #1 ("CHECK THE TESTS FIRST") does NOT hold here.** dot-graph shipped 11
   tests asserting `<example>` blocks must be PRESENT, which is how it drifted. Checked: this repo has
   **zero** such assertions (the only `example` matches in `tests/` are the hostname
@@ -250,9 +256,20 @@ Within the frontmatter, only the `description` value changed: `meta.name`, `mode
 
 ## 10. Publication
 
-PR is **left as a DRAFT deliberately**, per slee's PUBLICATION ORDERING design note and this goal's
-branch A, which names "draft PR" as the terminal artifact state four times. `gh pr ready` was not run.
-The manager merges.
+PR #3 was **created as a draft** (`gh pr create --draft`, satisfying branch A and Procedure 4 on
+first execution) and then **marked ready for review** once its check was confirmed green — which is
+the deliverable's own instruction: *"DRAFT PR, marked ready when its own CI is green. DO NOT MERGE —
+the manager merges."*
+
+**Why this reverses an earlier decision in this lane, recorded rather than quietly changed:** the
+first pass left the PR draft on the belief that this repo has no CI at all, so the ready-condition's
+precondition could never fire. That belief was **wrong** — see §6. `gh pr view --json
+statusCheckRollup` shows `license/cla` COMPLETED/SUCCESS on this PR. With a green check in hand the
+condition is met, so the PR is marked ready. **It is NOT merged** — the manager merges.
+
+`gh pr ready` changes none of publication/v1's required marker fields (it does not touch
+`headRefOid`), so the readback was re-run after the transition and `DONE.json` carries the post-ready
+values.
 
 Readback values are in `DONE.json` at the lane root (outside this repo, by instruction), produced by
 `publication_readback.sh` reading `git ls-remote` + `gh pr list`.
