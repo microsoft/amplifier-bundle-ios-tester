@@ -1,0 +1,5 @@
+<system-reminder source="hooks-skills-visibility">
+Available skills (use load_skill tool):
+
+- **ios-headless-build-and-sign**: Use when building or code-signing an iOS app from a headless Mac over plain SSH with no GUI session — driving the build-and-sign pipeline non-interactively, a device build that fails at signing with a misleading 'no identity found', or a capability declared in the project spec that silently does not work on-device despite a clean compile.
+</system-reminder>

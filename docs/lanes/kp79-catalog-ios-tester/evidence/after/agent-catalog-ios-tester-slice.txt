@@ -1,0 +1,27 @@
+  - ios-tester:ios-debugger: USE WHEN iOS UI behaviour is wrong and why is unknown: a tap does nothing; typed
+text vanishes or lands in the wrong field; a screen is blank, partial or stale;
+navigation silently fails; something that worked stopped; a device vanished or never
+appeared; Developer Mode/DDI mount failed. Owns frame diffing, focus tracing,
+tap-target checks, points-vs-pixels errors, syslog correlation, alert/keyboard
+blockers, SwiftUI accessibility gaps, tool vs device error, and "tap missed" vs
+"handler did nothing". DO NOT USE to drive flows (ios-operator), judge looks
+(ios-visual-tester), or Android/web/TUI.
+
+  - ios-tester:ios-operator: USE WHEN an iOS app must be driven and verified on a simulator or device:
+install/launch a .app; exercise a UI flow (navigation, forms, settings, tabs);
+confirm a fix landed on screen, not just in tests; write app settings and prove they
+took; survey a connected iPhone/iPad (version, apps, syslog); enable Developer Mode
+or mount a DDI. Owns simulator boot, `ui_dump` selectors, the points-vs-pixels
+contract, verified field writes, `wait_for` sync, log correlation, the read-only
+device tier, and the Developer Mode security round trip. DO NOT USE for visual
+review (ios-visual-tester), root-cause (ios-debugger), or Android/web/TUI.
+
+  - ios-tester:ios-visual-tester: USE WHEN the question about an iOS screen is how it LOOKS: screenshots of every
+screen/tab reviewed for defects; confirming a layout or styling fix landed;
+detecting clipped text, blank areas, overlap, misalignment, cut-off lists;
+before/after comparison of a change; a visual regression sweep;
+safe-area/notch/home-indicator collisions. Covers points-vs-pixels reconciliation of
+tree geometry against the render, truncation, severity grading, and device-tier
+review (it sees, never taps; no geometry). DO NOT USE to drive a flow
+(ios-operator), root-cause the break (ios-debugger), or Android/web/TUI.
+

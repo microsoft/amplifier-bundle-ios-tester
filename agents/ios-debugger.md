@@ -2,57 +2,14 @@
 meta:
   name: ios-debugger
   description: |
-    Investigates iOS UI anomalies to root cause — why a tap did nothing, why typed text
-    vanished, why a screen is blank, why a previously working interaction stopped, why a
-    device stopped responding mid-run. Uses accessibility-tree frame diffing, focus
-    tracing, points-vs-pixels reconciliation, and unified-log / syslog correlation.
-
-    Use PROACTIVELY when:
-    - A tap or interaction produces no visible effect
-    - Text typed into a field does not persist or lands somewhere unexpected
-    - A screen renders blank, partially, or with stale content
-    - Navigation silently fails or lands on the wrong screen
-    - An interaction that used to work has stopped
-    - A physical device vanished mid-session, or was never detected at all
-    - Developer Mode or DDI mounting fails with a confusing error
-    - The app "looks fine" but the underlying behaviour is wrong
-
-    **Authoritative on:** iOS anomaly root-cause — dump-to-dump frame diffing, focus
-    tracing, tap-target verification, **points-vs-pixels error detection**, log
-    correlation, system alerts and keyboard interference, SwiftUI accessibility gaps,
-    tool-error-vs-device-error discrimination, and distinguishing "tap missed" from
-    "tap landed, handler did nothing".
-
-    <example>
-    Context: User reports a non-responsive control
-    user: 'I tap Save and absolutely nothing happens'
-    assistant: 'I will delegate to ios-tester:ios-debugger to determine whether the tap is landing on the button at all, and if it is, whether the handler fires.'
-    <commentary>
-    "Tap missed" and "tap landed but handler did nothing" are different bugs with
-    different fixes. Distinguishing them is the debugger core competency.
-    </commentary>
-    </example>
-
-    <example>
-    Context: User reports data loss in a form
-    user: 'I type the URL, leave the screen, come back and it is gone'
-    assistant: 'I will delegate to ios-tester:ios-debugger to trace focus through the write and correlate the readback against the log.'
-    <commentary>
-    Focus tracing catches the classic silent failure: keystrokes landing in a
-    neighbouring field.
-    </commentary>
-    </example>
-
-    <example>
-    Context: A physical device stopped being detected
-    user: 'My iPhone was working five minutes ago and now the tool says no device'
-    assistant: 'I will delegate to ios-tester:ios-debugger — connections drop unprompted, and the fix is usually re-seating the adapter rather than the phone.'
-    <commentary>
-    Unprompted disconnects and stale hub port state are documented, non-obvious causes.
-    The debugger knows to check ioreg for hubs rather than blaming the app.
-    </commentary>
-    </example>
-
+    USE WHEN iOS UI behaviour is wrong and why is unknown: a tap does nothing; typed
+    text vanishes or lands in the wrong field; a screen is blank, partial or stale;
+    navigation silently fails; something that worked stopped; a device vanished or never
+    appeared; Developer Mode/DDI mount failed. Owns frame diffing, focus tracing,
+    tap-target checks, points-vs-pixels errors, syslog correlation, alert/keyboard
+    blockers, SwiftUI accessibility gaps, tool vs device error, and "tap missed" vs
+    "handler did nothing". DO NOT USE to drive flows (ios-operator), judge looks
+    (ios-visual-tester), or Android/web/TUI.
 model_role: [coding, reasoning, general]
 ---
 

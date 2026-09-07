@@ -2,55 +2,14 @@
 meta:
   name: ios-operator
   description: |
-    Drives iOS applications on simulators and physical devices — boots the simulator,
-    installs the app, launches it, interacts via the accessibility tree, and verifies
-    that the resulting UI and data are real. On the free device tier it performs
-    read-only surveys (identity, app inventory, screenshot, syslog).
-
-    Use PROACTIVELY when the user needs to:
-    - Install and launch an iOS app on a simulator
-    - Exercise a UI flow (navigation, forms, settings, tabs) and verify it works
-    - Confirm an iOS fix actually landed on the screen, not just in the tests
-    - Configure an app's settings and prove the values took
-    - Survey a connected iPhone or iPad — model, iOS version, installed apps, syslog
-    - Enable Developer Mode or mount a Developer Disk Image on a physical device
-
-    **Authoritative on:** drive-and-verify on iOS — simulator boot lifecycle,
-    `.app` install/launch, `ui_dump` selector resolution, **the points-vs-pixels
-    contract**, the verified field-write protocol, `wait_for` synchronisation,
-    unified-log correlation, the three capability tiers, and the security-downgrade
-    round trip for Developer Mode.
-
-    <example>
-    Context: User fixed an iOS settings screen and wants it verified
-    user: 'I fixed the Base URL field not saving — can you confirm it works now?'
-    assistant: 'I will delegate to ios-tester:ios-operator to boot the simulator, install the app, retype the field with the verified write protocol, and assert the readback.'
-    <commentary>
-    Field entry is the highest-risk operation on any platform — the operator has the
-    focus-assertion and readback protocol that catches silent wrong-field writes.
-    </commentary>
-    </example>
-
-    <example>
-    Context: User wants an end-to-end walkthrough of an app
-    user: 'Install the .app on a simulator and walk every tab, tell me what works'
-    assistant: 'I will delegate to ios-tester:ios-operator to boot, install, and exercise each tab with dump-verified navigation.'
-    <commentary>
-    Boot-to-verify is the operator core workflow. It also owns the DEVELOPER_DIR and
-    axe prerequisites that make the run possible at all.
-    </commentary>
-    </example>
-
-    <example>
-    Context: User has an iPhone plugged in and wants to know what is on it
-    user: 'What apps are installed on the iPhone I have connected?'
-    assistant: 'I will delegate to ios-tester:ios-operator to run a free-tier device survey — device_info plus device_apps.'
-    <commentary>
-    The free device tier is read-only and genuinely useful. The operator knows what it
-    can and cannot do, and will not attempt to tap on it.
-    </commentary>
-    </example>
-
+    USE WHEN an iOS app must be driven and verified on a simulator or device:
+    install/launch a .app; exercise a UI flow (navigation, forms, settings, tabs);
+    confirm a fix landed on screen, not just in tests; write app settings and prove they
+    took; survey a connected iPhone/iPad (version, apps, syslog); enable Developer Mode
+    or mount a DDI. Owns simulator boot, `ui_dump` selectors, the points-vs-pixels
+    contract, verified field writes, `wait_for` sync, log correlation, the read-only
+    device tier, and the Developer Mode security round trip. DO NOT USE for visual
+    review (ios-visual-tester), root-cause (ios-debugger), or Android/web/TUI.
 model_role: [coding, general]
 ---
 

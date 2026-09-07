@@ -1,0 +1,35 @@
+{
+  "method": "scratch bundle including this worktree's bundle.md + tool-delegate; `amplifier tool info delegate -b kp79-ios-scratch --format json`; catalog = the 'Available agents:' block of the delegate tool's own description. Skills block rendered by the shipped SkillsVisibilityHook._format_skills_list over this repo's skills/ dir. Deterministic, no LLM call, $0. BEFORE and AFTER captured BACK-TO-BACK via git stash push/pop on a live multi-lane host, then diffed to prove attribution.",
+  "delegate_tool_description_bytes": { "before": 80860, "after": 75124, "delta": -5736 },
+  "full_agent_catalog_bytes": {
+    "before": 79902, "after": 74166, "delta": -5736, "entries": 90,
+    "note": "90 entries across every bundle composed into the scratch session; only ios-tester's 3 changed. Control: diff(before,after) has exactly ONE hunk (746,893c746,771) and ZERO changed entry lines outside ios-tester:."
+  },
+  "ios_tester_slice_bytes": { "before": 7671, "after": 1935, "delta": -5736, "pct": -74.8, "entries": 3 },
+  "per_entry_bytes": {
+    "ios-tester:ios-debugger":      { "before": 2551, "after": 631, "delta": -1920 },
+    "ios-tester:ios-operator":      { "before": 2549, "after": 666, "delta": -1883 },
+    "ios-tester:ios-visual-tester": { "before": 2571, "after": 638, "delta": -1933 }
+  },
+  "skills_visibility_block_bytes": { "before": 1053, "after": 488, "delta": -565, "skills": 1 },
+  "combined_always_on_bytes_per_turn": { "delta": -6301, "approx_tokens_at_4.59_chars_per_token": -1373 },
+  "description_chars": {
+    "agents/ios-debugger.md":      { "before": 2515, "after": 601 },
+    "agents/ios-operator.md":      { "before": 2507, "after": 636 },
+    "agents/ios-visual-tester.md": { "before": 2524, "after": 603 },
+    "skills/ios-headless-build-and-sign/SKILL.md": { "before": 907, "after": 340 },
+    "agents_total": { "before": 7546, "after": 1840, "delta": -5706, "pct": -75.6 },
+    "repo_total":   { "before": 8453, "after": 2180, "delta": -6273, "pct": -74.2 }
+  },
+  "example_commentary_blocks": { "before": {"example": 9, "commentary": 9}, "after": {"example": 0, "commentary": 0} },
+  "body_md5_after_frontmatter": {
+    "agents/ios-debugger.md": "ad068071ecb1567d74f0d26582b1734e",
+    "agents/ios-operator.md": "b86a9aebde92853fce7b9ec5926fa71f",
+    "agents/ios-visual-tester.md": "a7558beb95a8444abf8e45ee74070adf",
+    "skills/ios-headless-build-and-sign/SKILL.md": "a12b79d52a1de1a0bfd985510dc13b96",
+    "note": "identical before and after -- frontmatter-only change, verified"
+  },
+  "tests": { "main": "165 passed", "branch": "165 passed", "note": "modules/tool-ios-inspector; no test references any description" },
+  "ci": "NONE -- .github/ does not exist in this repo",
+  "spend_usd": 0.00
+}

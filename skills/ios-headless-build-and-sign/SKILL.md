@@ -1,6 +1,6 @@
 ---
 name: ios-headless-build-and-sign
-description: "Build and code-sign an iOS app for the simulator or a physical device from a headless Mac driven over plain SSH, with no GUI session and no Xcode UI in the loop. Covers the unsigned simulator leg (CODE_SIGNING_ALLOWED=NO), the Apple-Events GUI bridge that the signed device leg requires, resolving a signing identity under manual vs automatic signing, the free-tier device build invocation, the App-ID-namespace registration failure and its fix, xcodegen project regeneration discipline, asserting Info.plist keys on the BUILT bundle rather than the source, codesign artifact verification, and the simulator/device Rust-slice target split. Use when driving an iOS build-and-sign pipeline from a non-GUI (ssh) session, when a device build fails at signing with a misleading 'no identity found' error, or when a capability declared in the project spec silently does not work on-device despite a clean compile."
+description: "Use when building or code-signing an iOS app from a headless Mac over plain SSH with no GUI session — driving the build-and-sign pipeline non-interactively, a device build that fails at signing with a misleading 'no identity found', or a capability declared in the project spec that silently does not work on-device despite a clean compile."
 version: 1.0.0
 ---
 
