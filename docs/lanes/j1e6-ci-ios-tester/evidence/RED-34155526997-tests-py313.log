@@ -1,0 +1,283 @@
+Tests — tool-ios-inspector (Python 3.13)	Set up job	﻿2026-09-07T19:25:47.0095170Z Current runner version: '2.337.0'
+Tests — tool-ios-inspector (Python 3.13)	Set up job	2026-09-07T19:25:47.0120778Z ##[group]Runner Image Provisioner
+Tests — tool-ios-inspector (Python 3.13)	Set up job	2026-09-07T19:25:47.0121641Z Hosted Compute Agent
+Tests — tool-ios-inspector (Python 3.13)	Set up job	2026-09-07T19:25:47.0122346Z Version: 20260828.587
+Tests — tool-ios-inspector (Python 3.13)	Set up job	2026-09-07T19:25:47.0123040Z Commit: abac92662cab4cc7352de4f9f9d2e2419aad9c29
+Tests — tool-ios-inspector (Python 3.13)	Set up job	2026-09-07T19:25:47.0123831Z Build Date: 2026-08-28T16:44:25Z
+Tests — tool-ios-inspector (Python 3.13)	Set up job	2026-09-07T19:25:47.0124643Z Worker ID: {bfdf5e30-5ced-4706-80c7-4b772f3cfce3}
+Tests — tool-ios-inspector (Python 3.13)	Set up job	2026-09-07T19:25:47.0125411Z Azure Region: eastus
+Tests — tool-ios-inspector (Python 3.13)	Set up job	2026-09-07T19:25:47.0126200Z ##[endgroup]
+Tests — tool-ios-inspector (Python 3.13)	Set up job	2026-09-07T19:25:47.0127780Z ##[group]Operating System
+Tests — tool-ios-inspector (Python 3.13)	Set up job	2026-09-07T19:25:47.0128518Z Ubuntu
+Tests — tool-ios-inspector (Python 3.13)	Set up job	2026-09-07T19:25:47.0129131Z 24.04.4
+Tests — tool-ios-inspector (Python 3.13)	Set up job	2026-09-07T19:25:47.0129668Z LTS
+Tests — tool-ios-inspector (Python 3.13)	Set up job	2026-09-07T19:25:47.0130186Z ##[endgroup]
+Tests — tool-ios-inspector (Python 3.13)	Set up job	2026-09-07T19:25:47.0130821Z ##[group]Runner Image
+Tests — tool-ios-inspector (Python 3.13)	Set up job	2026-09-07T19:25:47.0131478Z Image: ubuntu-24.04
+Tests — tool-ios-inspector (Python 3.13)	Set up job	2026-09-07T19:25:47.0132091Z Version: 20260831.293.1
+Tests — tool-ios-inspector (Python 3.13)	Set up job	2026-09-07T19:25:47.0133230Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260831.293/images/ubuntu/Ubuntu2404-Readme.md
+Tests — tool-ios-inspector (Python 3.13)	Set up job	2026-09-07T19:25:47.0135037Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260831.293
+Tests — tool-ios-inspector (Python 3.13)	Set up job	2026-09-07T19:25:47.0136266Z ##[endgroup]
+Tests — tool-ios-inspector (Python 3.13)	Set up job	2026-09-07T19:25:47.0137471Z ##[group]GITHUB_TOKEN Permissions
+Tests — tool-ios-inspector (Python 3.13)	Set up job	2026-09-07T19:25:47.0139553Z Contents: read
+Tests — tool-ios-inspector (Python 3.13)	Set up job	2026-09-07T19:25:47.0140295Z Metadata: read
+Tests — tool-ios-inspector (Python 3.13)	Set up job	2026-09-07T19:25:47.0140914Z ##[endgroup]
+Tests — tool-ios-inspector (Python 3.13)	Set up job	2026-09-07T19:25:47.0143067Z Secret source: Actions
+Tests — tool-ios-inspector (Python 3.13)	Set up job	2026-09-07T19:25:47.0144418Z Prepare workflow directory
+Tests — tool-ios-inspector (Python 3.13)	Set up job	2026-09-07T19:25:47.0465610Z Prepare all required actions
+Tests — tool-ios-inspector (Python 3.13)	Set up job	2026-09-07T19:25:47.0512829Z Getting action download info
+Tests — tool-ios-inspector (Python 3.13)	Set up job	2026-09-07T19:25:47.2790691Z Download action repository 'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+Tests — tool-ios-inspector (Python 3.13)	Set up job	2026-09-07T19:25:47.4457094Z Download action repository 'actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97' (SHA:5fda3b95a4ea91299a34e894583c3862153e4b97)
+Tests — tool-ios-inspector (Python 3.13)	Set up job	2026-09-07T19:25:47.6227105Z Download action repository 'astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d' (SHA:20cfd1bf945f4377ade1205e4dbc17946fc9a30d)
+Tests — tool-ios-inspector (Python 3.13)	Set up job	2026-09-07T19:25:47.9347420Z Complete job name: Tests — tool-ios-inspector (Python 3.13)
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	﻿2026-09-07T19:25:48.0209562Z ##[group]Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.0210699Z with:
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.0211257Z   repository: microsoft/amplifier-bundle-ios-tester
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.0215261Z   token: ***
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.0215748Z   ssh-strict: true
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.0216426Z   ssh-user: git
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.0216919Z   persist-credentials: true
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.0217440Z   clean: true
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.0217970Z   sparse-checkout-cone-mode: true
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.0218523Z   fetch-depth: 1
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.0219002Z   fetch-tags: false
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.0219488Z   show-progress: true
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.0219982Z   lfs: false
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.0220430Z   submodules: false
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.0221024Z   set-safe-directory: true
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.0221563Z   allow-unsafe-pr-checkout: false
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.0222426Z ##[endgroup]
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.1234939Z Syncing repository: microsoft/amplifier-bundle-ios-tester
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.1237517Z ##[group]Getting Git version info
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.1238634Z Working directory is '/home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester'
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.1240076Z [command]/usr/bin/git version
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.1316936Z git version 2.55.0
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.1337877Z ##[endgroup]
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.1348431Z Temporarily overriding HOME='/home/runner/work/_temp/056e46ed-2cea-4b3c-b93d-8312f263ba1a' before making global git config changes
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.1350753Z Adding repository directory to the temporary git global config as a safe directory
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.1353835Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.1398731Z Deleting the contents of '/home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester'
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.1401582Z ##[group]Determining repository object format
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.1403304Z ##[endgroup]
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.1404132Z ##[group]Initializing the repository
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.1408132Z [command]/usr/bin/git init /home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.1516295Z hint: Using 'master' as the name for the initial branch. This default branch name
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.1517787Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.1519266Z hint: to use in all of your new repositories, which will suppress this warning,
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.1520583Z hint: call:
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.1521286Z hint:
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.1522142Z hint: 	git config --global init.defaultBranch <name>
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.1523004Z hint:
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.1523652Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.1524885Z hint: 'development'. The just-created branch can be renamed via this command:
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.1525765Z hint:
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.1526522Z hint: 	git branch -m <name>
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.1527057Z hint:
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.1527718Z hint: Disable this message with "git config set advice.defaultBranchName false"
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.1529163Z Initialized empty Git repository in /home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/.git/
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.1532490Z [command]/usr/bin/git remote add origin https://github.com/microsoft/amplifier-bundle-ios-tester
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.1573042Z ##[endgroup]
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.1573935Z ##[group]Disabling automatic garbage collection
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.1576438Z [command]/usr/bin/git config --local gc.auto 0
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.1603610Z ##[endgroup]
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.1604456Z ##[group]Setting up auth
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.1609468Z Removing SSH command configuration
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.1615735Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.1640076Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.1968473Z Removing HTTP extra header
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.1973718Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.2005175Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.2216607Z Removing includeIf entries pointing to credentials config files
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.2221417Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.2251530Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.2468257Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-8e919bc6-5879-42c9-8f1a-38c9c1ad5b3a.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.2504667Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/.git.path /home/runner/work/_temp/git-credentials-8e919bc6-5879-42c9-8f1a-38c9c1ad5b3a.config
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.2532603Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-8e919bc6-5879-42c9-8f1a-38c9c1ad5b3a.config
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.2563692Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-8e919bc6-5879-42c9-8f1a-38c9c1ad5b3a.config
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.2593561Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-8e919bc6-5879-42c9-8f1a-38c9c1ad5b3a.config
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.2619722Z ##[endgroup]
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.2620984Z ##[group]Fetching the repository
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.2625743Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +0e85e5b839706718468d4ea0a95dd949b5c74a04:refs/remotes/pull/4/merge
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.5270022Z From https://github.com/microsoft/amplifier-bundle-ios-tester
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.5272412Z  * [new ref]         0e85e5b839706718468d4ea0a95dd949b5c74a04 -> pull/4/merge
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.5277912Z ##[endgroup]
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.5280128Z ##[group]Determining the checkout info
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.5282596Z ##[endgroup]
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.5284081Z [command]/usr/bin/git sparse-checkout disable
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.5330719Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.5359127Z ##[group]Checking out the ref
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.5361318Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/4/merge
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.5493989Z Note: switching to 'refs/remotes/pull/4/merge'.
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.5495316Z 
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.5496421Z You are in 'detached HEAD' state. You can look around, make experimental
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.5498481Z changes and commit them, and you can discard any commits you make in this
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.5500421Z state without impacting any branches by switching back to a branch.
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.5501633Z 
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.5502478Z If you want to create a new branch to retain commits you create, you may
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.5504576Z do so (now or later) by using -c with the switch command. Example:
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.5505751Z 
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.5506472Z   git switch -c <new-branch-name>
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.5507463Z 
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.5507917Z Or undo this operation with:
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.5508742Z 
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.5509152Z   git switch -
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.5509824Z 
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.5510728Z Turn off this advice by setting config variable advice.detachedHead to false
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.5512324Z 
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.5513891Z HEAD is now at 0e85e5b Merge 59ba3f10eee3137a0b2b90d260dbfddeeb228ce5 into f8f16ad0a10adfb0561c0cf05881083229932325
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.5519835Z ##[endgroup]
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.5544416Z [command]/usr/bin/git log -1 --format=%H
+Tests — tool-ios-inspector (Python 3.13)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.5568279Z 0e85e5b839706718468d4ea0a95dd949b5c74a04
+Tests — tool-ios-inspector (Python 3.13)	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	﻿2026-09-07T19:25:48.5949573Z ##[group]Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+Tests — tool-ios-inspector (Python 3.13)	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-09-07T19:25:48.5951271Z with:
+Tests — tool-ios-inspector (Python 3.13)	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-09-07T19:25:48.5952068Z   python-version: 3.13
+Tests — tool-ios-inspector (Python 3.13)	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-09-07T19:25:48.5952998Z   check-latest: false
+Tests — tool-ios-inspector (Python 3.13)	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-09-07T19:25:48.5963142Z   token: ***
+Tests — tool-ios-inspector (Python 3.13)	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-09-07T19:25:48.5964012Z   update-environment: true
+Tests — tool-ios-inspector (Python 3.13)	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-09-07T19:25:48.5965035Z   allow-prereleases: false
+Tests — tool-ios-inspector (Python 3.13)	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-09-07T19:25:48.5966177Z   freethreaded: false
+Tests — tool-ios-inspector (Python 3.13)	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-09-07T19:25:48.5967091Z ##[endgroup]
+Tests — tool-ios-inspector (Python 3.13)	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-09-07T19:25:48.7189383Z ##[group]Installed versions
+Tests — tool-ios-inspector (Python 3.13)	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-09-07T19:25:48.8044678Z Successfully set up CPython (3.13.15)
+Tests — tool-ios-inspector (Python 3.13)	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-09-07T19:25:48.8047899Z ##[endgroup]
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	﻿2026-09-07T19:25:48.8401201Z ##[group]Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:48.8402884Z with:
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:48.8403606Z   enable-cache: true
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:48.8404457Z   activate-environment: false
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:48.8405394Z   no-project: false
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:48.8407214Z   working-directory: /home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:48.8417412Z   github-token: ***
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:48.8419548Z   cache-dependency-glob: **/*requirements*.txt
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	**/*requirements*.in
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	**/*constraints*.txt
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	**/*constraints*.in
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	**/pyproject.toml
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	**/uv.lock
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	**/*.py.lock
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:48.8421925Z   restore-cache: true
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:48.8422745Z   save-cache: true
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:48.8423533Z   prune-cache: false
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:48.8424358Z   cache-python: false
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:48.8425229Z   ignore-nothing-to-cache: false
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:48.8426495Z   ignore-empty-workdir: false
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:48.8427518Z   download-from-astral-mirror: true
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:48.8428817Z   add-problem-matchers: true
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:48.8429726Z   quiet: false
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:48.8430520Z   resolution-strategy: highest
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:48.8431465Z env:
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:48.8432388Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.15/x64
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:48.8434010Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.15/x64/lib/pkgconfig
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:48.8435633Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.15/x64
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:48.8437331Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.15/x64
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:48.8438796Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.15/x64
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:48.8440281Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.15/x64/lib
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:48.8441526Z ##[endgroup]
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:49.0244272Z Trying to find version for uv in: /home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/uv.toml
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:49.0250289Z Could not find file: /home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/uv.toml
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:49.0256288Z Trying to find version for uv in: /home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/pyproject.toml
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:49.0262153Z Could not find file: /home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/pyproject.toml
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:49.0267448Z Could not determine uv version from uv.toml or pyproject.toml. Falling back to latest.
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:49.0273788Z Fetching manifest data from https://raw.githubusercontent.com/astral-sh/versions/main/v1/uv.ndjson ...
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:49.0725753Z Downloading uv from "https://releases.astral.sh/github/uv/releases/download/0.12.10/uv-x86_64-unknown-linux-gnu.tar.gz" ...
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:49.2490258Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/1bdd057c-faa5-466d-8244-677b7e2550ae -f /home/runner/work/_temp/07849242-ddfe-4e1f-9ee3-e5b680672a8f
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:49.6369215Z Added /home/runner/.local/bin to the path
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:49.6372748Z Added /opt/hostedtoolcache/uv/0.12.10/x86_64 to the path
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:49.6374646Z Set UV_PYTHON_INSTALL_DIR to /home/runner/work/_temp/uv-python-dir
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:49.6375841Z Added /home/runner/work/_temp/uv-python-dir to the path
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:49.6384383Z Set UV_CACHE_DIR to /home/runner/work/_temp/setup-uv-cache
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:49.6385296Z Successfully installed uv version 0.12.10
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:50.3732814Z Searching files using cache dependency glob: /home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/**/*requirements*.txt,/home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/**/*requirements*.in,/home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/**/*constraints*.txt,/home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/**/*constraints*.in,/home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/**/pyproject.toml,/home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/**/uv.lock,/home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/**/*.py.lock
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:50.4251758Z /home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/modules/tool-ios-inspector/pyproject.toml
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:50.4301258Z Found 1 files to hash.
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:50.4368509Z Trying to restore cache from GitHub Actions cache with key: setup-uv-2-x86_64-unknown-linux-gnu-ubuntu-24.04-3.13.15-77e99a7fa7373ba2761c5b845f18a598e1b2f921dc30ca909dc94137dc44b8f3
+Tests — tool-ios-inspector (Python 3.13)	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:50.5143435Z No GitHub Actions cache found for key: setup-uv-2-x86_64-unknown-linux-gnu-ubuntu-24.04-3.13.15-77e99a7fa7373ba2761c5b845f18a598e1b2f921dc30ca909dc94137dc44b8f3
+Tests — tool-ios-inspector (Python 3.13)	Install dependencies	﻿2026-09-07T19:25:50.6316817Z ##[group]Run uv sync --extra dev --python 3.13
+Tests — tool-ios-inspector (Python 3.13)	Install dependencies	2026-09-07T19:25:50.6317316Z [36;1muv sync --extra dev --python 3.13[0m
+Tests — tool-ios-inspector (Python 3.13)	Install dependencies	2026-09-07T19:25:50.6358001Z shell: /usr/bin/bash -e {0}
+Tests — tool-ios-inspector (Python 3.13)	Install dependencies	2026-09-07T19:25:50.6358305Z env:
+Tests — tool-ios-inspector (Python 3.13)	Install dependencies	2026-09-07T19:25:50.6358615Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.15/x64
+Tests — tool-ios-inspector (Python 3.13)	Install dependencies	2026-09-07T19:25:50.6359292Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.15/x64/lib/pkgconfig
+Tests — tool-ios-inspector (Python 3.13)	Install dependencies	2026-09-07T19:25:50.6359734Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.15/x64
+Tests — tool-ios-inspector (Python 3.13)	Install dependencies	2026-09-07T19:25:50.6360117Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.15/x64
+Tests — tool-ios-inspector (Python 3.13)	Install dependencies	2026-09-07T19:25:50.6360504Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.15/x64
+Tests — tool-ios-inspector (Python 3.13)	Install dependencies	2026-09-07T19:25:50.6360890Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.15/x64/lib
+Tests — tool-ios-inspector (Python 3.13)	Install dependencies	2026-09-07T19:25:50.6361289Z   UV_PYTHON_INSTALL_DIR: /home/runner/work/_temp/uv-python-dir
+Tests — tool-ios-inspector (Python 3.13)	Install dependencies	2026-09-07T19:25:50.6361661Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+Tests — tool-ios-inspector (Python 3.13)	Install dependencies	2026-09-07T19:25:50.6361977Z ##[endgroup]
+Tests — tool-ios-inspector (Python 3.13)	Install dependencies	2026-09-07T19:25:50.6954642Z Using CPython 3.13.15 interpreter at: /opt/hostedtoolcache/Python/3.13.15/x64/bin/python3.13
+Tests — tool-ios-inspector (Python 3.13)	Install dependencies	2026-09-07T19:25:50.6955800Z Creating virtual environment at: .venv
+Tests — tool-ios-inspector (Python 3.13)	Install dependencies	2026-09-07T19:25:50.7846776Z Resolved 9 packages in 88ms
+Tests — tool-ios-inspector (Python 3.13)	Install dependencies	2026-09-07T19:25:50.7873181Z    Building amplifier-module-tool-ios-inspector @ file:///home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/modules/tool-ios-inspector
+Tests — tool-ios-inspector (Python 3.13)	Install dependencies	2026-09-07T19:25:50.7972970Z Downloading pygments (1.2MiB)
+Tests — tool-ios-inspector (Python 3.13)	Install dependencies	2026-09-07T19:25:50.8488135Z  Downloaded pygments
+Tests — tool-ios-inspector (Python 3.13)	Install dependencies	2026-09-07T19:25:51.5529527Z       Built amplifier-module-tool-ios-inspector @ file:///home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/modules/tool-ios-inspector
+Tests — tool-ios-inspector (Python 3.13)	Install dependencies	2026-09-07T19:25:51.5539648Z Prepared 7 packages in 768ms
+Tests — tool-ios-inspector (Python 3.13)	Install dependencies	2026-09-07T19:25:51.5668515Z Installed 7 packages in 9ms
+Tests — tool-ios-inspector (Python 3.13)	Install dependencies	2026-09-07T19:25:51.5669927Z  + amplifier-module-tool-ios-inspector==0.1.0 (from file:///home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/modules/tool-ios-inspector)
+Tests — tool-ios-inspector (Python 3.13)	Install dependencies	2026-09-07T19:25:51.5671142Z  + iniconfig==2.3.0
+Tests — tool-ios-inspector (Python 3.13)	Install dependencies	2026-09-07T19:25:51.5671539Z  + packaging==26.3
+Tests — tool-ios-inspector (Python 3.13)	Install dependencies	2026-09-07T19:25:51.5671909Z  + pluggy==1.6.0
+Tests — tool-ios-inspector (Python 3.13)	Install dependencies	2026-09-07T19:25:51.5672260Z  + pygments==2.21.0
+Tests — tool-ios-inspector (Python 3.13)	Install dependencies	2026-09-07T19:25:51.5672618Z  + pytest==9.1.1
+Tests — tool-ios-inspector (Python 3.13)	Install dependencies	2026-09-07T19:25:51.5673011Z  + pytest-asyncio==1.4.0
+Tests — tool-ios-inspector (Python 3.13)	Run tests	﻿2026-09-07T19:25:51.5751865Z ##[group]Run uv run --no-sync pytest tests/ -q --tb=short
+Tests — tool-ios-inspector (Python 3.13)	Run tests	2026-09-07T19:25:51.5752337Z [36;1muv run --no-sync pytest tests/ -q --tb=short[0m
+Tests — tool-ios-inspector (Python 3.13)	Run tests	2026-09-07T19:25:51.5789405Z shell: /usr/bin/bash -e {0}
+Tests — tool-ios-inspector (Python 3.13)	Run tests	2026-09-07T19:25:51.5789674Z env:
+Tests — tool-ios-inspector (Python 3.13)	Run tests	2026-09-07T19:25:51.5789953Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.15/x64
+Tests — tool-ios-inspector (Python 3.13)	Run tests	2026-09-07T19:25:51.5790396Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.15/x64/lib/pkgconfig
+Tests — tool-ios-inspector (Python 3.13)	Run tests	2026-09-07T19:25:51.5790852Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.15/x64
+Tests — tool-ios-inspector (Python 3.13)	Run tests	2026-09-07T19:25:51.5791247Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.15/x64
+Tests — tool-ios-inspector (Python 3.13)	Run tests	2026-09-07T19:25:51.5791634Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.15/x64
+Tests — tool-ios-inspector (Python 3.13)	Run tests	2026-09-07T19:25:51.5792021Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.15/x64/lib
+Tests — tool-ios-inspector (Python 3.13)	Run tests	2026-09-07T19:25:51.5792427Z   UV_PYTHON_INSTALL_DIR: /home/runner/work/_temp/uv-python-dir
+Tests — tool-ios-inspector (Python 3.13)	Run tests	2026-09-07T19:25:51.5792798Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+Tests — tool-ios-inspector (Python 3.13)	Run tests	2026-09-07T19:25:51.5793098Z ##[endgroup]
+Tests — tool-ios-inspector (Python 3.13)	Run tests	2026-09-07T19:25:55.8072707Z ........................................................................ [ 43%]
+Tests — tool-ios-inspector (Python 3.13)	Run tests	2026-09-07T19:25:55.8998791Z ........................................................................ [ 86%]
+Tests — tool-ios-inspector (Python 3.13)	Run tests	2026-09-07T19:25:55.9607603Z .....................F                                                   [100%]
+Tests — tool-ios-inspector (Python 3.13)	Run tests	2026-09-07T19:25:55.9608425Z =================================== FAILURES ===================================
+Tests — tool-ios-inspector (Python 3.13)	Run tests	2026-09-07T19:25:55.9609274Z ______________________ test_red_proof_deliberate_failure _______________________
+Tests — tool-ios-inspector (Python 3.13)	Run tests	2026-09-07T19:25:55.9610172Z tests/test_zz_redproof.py:11: in test_red_proof_deliberate_failure
+Tests — tool-ios-inspector (Python 3.13)	Run tests	2026-09-07T19:25:55.9611160Z     assert 1 == 2, "deliberate failure: proving the Tests job gates on real assertions"
+Tests — tool-ios-inspector (Python 3.13)	Run tests	2026-09-07T19:25:55.9612279Z E   AssertionError: deliberate failure: proving the Tests job gates on real assertions
+Tests — tool-ios-inspector (Python 3.13)	Run tests	2026-09-07T19:25:55.9613192Z E   assert 1 == 2
+Tests — tool-ios-inspector (Python 3.13)	Run tests	2026-09-07T19:25:55.9613706Z =========================== short test summary info ============================
+Tests — tool-ios-inspector (Python 3.13)	Run tests	2026-09-07T19:25:55.9615640Z FAILED tests/test_zz_redproof.py::test_red_proof_deliberate_failure - AssertionError: deliberate failure: proving the Tests job gates on real assertions
+Tests — tool-ios-inspector (Python 3.13)	Run tests	2026-09-07T19:25:55.9617217Z assert 1 == 2
+Tests — tool-ios-inspector (Python 3.13)	Run tests	2026-09-07T19:25:55.9617606Z 1 failed, 165 passed in 2.83s
+Tests — tool-ios-inspector (Python 3.13)	Run tests	2026-09-07T19:25:55.9958911Z ##[error]Process completed with exit code 1.
+Tests — tool-ios-inspector (Python 3.13)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	﻿2026-09-07T19:25:56.0102827Z Post job cleanup.
+Tests — tool-ios-inspector (Python 3.13)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:56.0913413Z [command]/usr/bin/git version
+Tests — tool-ios-inspector (Python 3.13)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:56.0949944Z git version 2.55.0
+Tests — tool-ios-inspector (Python 3.13)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:56.0984329Z Temporarily overriding HOME='/home/runner/work/_temp/7c8c1200-fc7f-4bc8-880c-3c94a8972874' before making global git config changes
+Tests — tool-ios-inspector (Python 3.13)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:56.0985266Z Adding repository directory to the temporary git global config as a safe directory
+Tests — tool-ios-inspector (Python 3.13)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:56.0990475Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester
+Tests — tool-ios-inspector (Python 3.13)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:56.1020566Z Removing SSH command configuration
+Tests — tool-ios-inspector (Python 3.13)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:56.1026814Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+Tests — tool-ios-inspector (Python 3.13)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:56.1062065Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+Tests — tool-ios-inspector (Python 3.13)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:56.1285049Z Removing HTTP extra header
+Tests — tool-ios-inspector (Python 3.13)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:56.1290648Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+Tests — tool-ios-inspector (Python 3.13)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:56.1325007Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+Tests — tool-ios-inspector (Python 3.13)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:56.1539165Z Removing includeIf entries pointing to credentials config files
+Tests — tool-ios-inspector (Python 3.13)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:56.1545285Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+Tests — tool-ios-inspector (Python 3.13)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:56.1573402Z includeif.gitdir:/home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/.git.path
+Tests — tool-ios-inspector (Python 3.13)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:56.1574627Z includeif.gitdir:/home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/.git/worktrees/*.path
+Tests — tool-ios-inspector (Python 3.13)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:56.1575240Z includeif.gitdir:/github/workspace/.git.path
+Tests — tool-ios-inspector (Python 3.13)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:56.1575600Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+Tests — tool-ios-inspector (Python 3.13)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:56.1585384Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/.git.path
+Tests — tool-ios-inspector (Python 3.13)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:56.1607087Z /home/runner/work/_temp/git-credentials-8e919bc6-5879-42c9-8f1a-38c9c1ad5b3a.config
+Tests — tool-ios-inspector (Python 3.13)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:56.1617992Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/.git.path \/home\/runner\/work\/_temp\/git\-credentials\-8e919bc6\-5879\-42c9\-8f1a\-38c9c1ad5b3a\.config
+Tests — tool-ios-inspector (Python 3.13)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:56.1652727Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/.git/worktrees/*.path
+Tests — tool-ios-inspector (Python 3.13)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:56.1674923Z /home/runner/work/_temp/git-credentials-8e919bc6-5879-42c9-8f1a-38c9c1ad5b3a.config
+Tests — tool-ios-inspector (Python 3.13)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:56.1684604Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/.git/worktrees/*.path \/home\/runner\/work\/_temp\/git\-credentials\-8e919bc6\-5879\-42c9\-8f1a\-38c9c1ad5b3a\.config
+Tests — tool-ios-inspector (Python 3.13)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:56.1717323Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+Tests — tool-ios-inspector (Python 3.13)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:56.1737141Z /github/runner_temp/git-credentials-8e919bc6-5879-42c9-8f1a-38c9c1ad5b3a.config
+Tests — tool-ios-inspector (Python 3.13)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:56.1744851Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-8e919bc6\-5879\-42c9\-8f1a\-38c9c1ad5b3a\.config
+Tests — tool-ios-inspector (Python 3.13)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:56.1775430Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+Tests — tool-ios-inspector (Python 3.13)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:56.1796165Z /github/runner_temp/git-credentials-8e919bc6-5879-42c9-8f1a-38c9c1ad5b3a.config
+Tests — tool-ios-inspector (Python 3.13)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:56.1804263Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-8e919bc6\-5879\-42c9\-8f1a\-38c9c1ad5b3a\.config
+Tests — tool-ios-inspector (Python 3.13)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:56.1835703Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+Tests — tool-ios-inspector (Python 3.13)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:56.2053134Z Removing credentials config '/home/runner/work/_temp/git-credentials-8e919bc6-5879-42c9-8f1a-38c9c1ad5b3a.config'
+Tests — tool-ios-inspector (Python 3.13)	Complete job	﻿2026-09-07T19:25:56.2190536Z Cleaning up orphan processes

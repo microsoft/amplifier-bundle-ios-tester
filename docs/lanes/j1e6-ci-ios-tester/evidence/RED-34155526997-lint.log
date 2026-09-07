@@ -1,0 +1,226 @@
+Lint	Set up job	﻿2026-09-07T19:25:46.2683507Z Current runner version: '2.337.0'
+Lint	Set up job	2026-09-07T19:25:46.2720551Z ##[group]Runner Image Provisioner
+Lint	Set up job	2026-09-07T19:25:46.2721920Z Hosted Compute Agent
+Lint	Set up job	2026-09-07T19:25:46.2723009Z Version: 20260828.587
+Lint	Set up job	2026-09-07T19:25:46.2724037Z Commit: abac92662cab4cc7352de4f9f9d2e2419aad9c29
+Lint	Set up job	2026-09-07T19:25:46.2725528Z Build Date: 2026-08-28T16:44:25Z
+Lint	Set up job	2026-09-07T19:25:46.2726835Z Worker ID: {9f04bb20-34d2-4bf6-85fc-34034d40c555}
+Lint	Set up job	2026-09-07T19:25:46.2727997Z Azure Region: eastus2
+Lint	Set up job	2026-09-07T19:25:46.2729094Z ##[endgroup]
+Lint	Set up job	2026-09-07T19:25:46.2731137Z ##[group]Operating System
+Lint	Set up job	2026-09-07T19:25:46.2732315Z Ubuntu
+Lint	Set up job	2026-09-07T19:25:46.2733192Z 24.04.4
+Lint	Set up job	2026-09-07T19:25:46.2733991Z LTS
+Lint	Set up job	2026-09-07T19:25:46.2735090Z ##[endgroup]
+Lint	Set up job	2026-09-07T19:25:46.2735931Z ##[group]Runner Image
+Lint	Set up job	2026-09-07T19:25:46.2736936Z Image: ubuntu-24.04
+Lint	Set up job	2026-09-07T19:25:46.2737874Z Version: 20260831.293.1
+Lint	Set up job	2026-09-07T19:25:46.2739451Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260831.293/images/ubuntu/Ubuntu2404-Readme.md
+Lint	Set up job	2026-09-07T19:25:46.2742344Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260831.293
+Lint	Set up job	2026-09-07T19:25:46.2744145Z ##[endgroup]
+Lint	Set up job	2026-09-07T19:25:46.2746177Z ##[group]GITHUB_TOKEN Permissions
+Lint	Set up job	2026-09-07T19:25:46.2749414Z Contents: read
+Lint	Set up job	2026-09-07T19:25:46.2750304Z Metadata: read
+Lint	Set up job	2026-09-07T19:25:46.2751209Z ##[endgroup]
+Lint	Set up job	2026-09-07T19:25:46.2754102Z Secret source: Actions
+Lint	Set up job	2026-09-07T19:25:46.2756075Z Prepare workflow directory
+Lint	Set up job	2026-09-07T19:25:46.3226779Z Prepare all required actions
+Lint	Set up job	2026-09-07T19:25:46.3298331Z Getting action download info
+Lint	Set up job	2026-09-07T19:25:46.5366287Z Download action repository 'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+Lint	Set up job	2026-09-07T19:25:46.6628933Z Download action repository 'astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d' (SHA:20cfd1bf945f4377ade1205e4dbc17946fc9a30d)
+Lint	Set up job	2026-09-07T19:25:47.0237064Z Complete job name: Lint
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	﻿2026-09-07T19:25:47.0996776Z ##[group]Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.0997886Z with:
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.0998401Z   repository: microsoft/amplifier-bundle-ios-tester
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.1002719Z   token: ***
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.1003169Z   ssh-strict: true
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.1003614Z   ssh-user: git
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.1004074Z   persist-credentials: true
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.1004874Z   clean: true
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.1005330Z   sparse-checkout-cone-mode: true
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.1005873Z   fetch-depth: 1
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.1006310Z   fetch-tags: false
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.1006766Z   show-progress: true
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.1007222Z   lfs: false
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.1007643Z   submodules: false
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.1008111Z   set-safe-directory: true
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.1008618Z   allow-unsafe-pr-checkout: false
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.1009347Z ##[endgroup]
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.2050384Z Syncing repository: microsoft/amplifier-bundle-ios-tester
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.2052465Z ##[group]Getting Git version info
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.2053538Z Working directory is '/home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester'
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.2055126Z [command]/usr/bin/git version
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.2099711Z git version 2.55.0
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.2119459Z ##[endgroup]
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.2131111Z Temporarily overriding HOME='/home/runner/work/_temp/fb4e4ab0-5916-44dc-8f5d-021c4dc53c35' before making global git config changes
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.2132550Z Adding repository directory to the temporary git global config as a safe directory
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.2137292Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.2182966Z Deleting the contents of '/home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester'
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.2186059Z ##[group]Determining repository object format
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.2187620Z ##[endgroup]
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.2188558Z ##[group]Initializing the repository
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.2192200Z [command]/usr/bin/git init /home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.2282294Z hint: Using 'master' as the name for the initial branch. This default branch name
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.2284474Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.2286139Z hint: to use in all of your new repositories, which will suppress this warning,
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.2287038Z hint: call:
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.2287763Z hint:
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.2288551Z hint: 	git config --global init.defaultBranch <name>
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.2289334Z hint:
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.2290023Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.2291087Z hint: 'development'. The just-created branch can be renamed via this command:
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.2291940Z hint:
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.2292528Z hint: 	git branch -m <name>
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.2293128Z hint:
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.2293893Z hint: Disable this message with "git config set advice.defaultBranchName false"
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.2295577Z Initialized empty Git repository in /home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/.git/
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.2299427Z [command]/usr/bin/git remote add origin https://github.com/microsoft/amplifier-bundle-ios-tester
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.2348899Z ##[endgroup]
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.2350382Z ##[group]Disabling automatic garbage collection
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.2354992Z [command]/usr/bin/git config --local gc.auto 0
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.2393007Z ##[endgroup]
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.2394250Z ##[group]Setting up auth
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.2395402Z Removing SSH command configuration
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.2400468Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.2435689Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.2782843Z Removing HTTP extra header
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.2789014Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.2835148Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.3094179Z Removing includeIf entries pointing to credentials config files
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.3099256Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.3140140Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.3403880Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-7cf210b6-de1f-4080-9937-799d06ac8f9c.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.3455212Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/.git.path /home/runner/work/_temp/git-credentials-7cf210b6-de1f-4080-9937-799d06ac8f9c.config
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.3491723Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-7cf210b6-de1f-4080-9937-799d06ac8f9c.config
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.3528734Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-7cf210b6-de1f-4080-9937-799d06ac8f9c.config
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.3563132Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-7cf210b6-de1f-4080-9937-799d06ac8f9c.config
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.3593342Z ##[endgroup]
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.3595330Z ##[group]Fetching the repository
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.3600699Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +0e85e5b839706718468d4ea0a95dd949b5c74a04:refs/remotes/pull/4/merge
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.6657193Z From https://github.com/microsoft/amplifier-bundle-ios-tester
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.6658710Z  * [new ref]         0e85e5b839706718468d4ea0a95dd949b5c74a04 -> pull/4/merge
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.6661806Z ##[endgroup]
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.6663099Z ##[group]Determining the checkout info
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.6664242Z ##[endgroup]
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.6668069Z [command]/usr/bin/git sparse-checkout disable
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.6719414Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.6833370Z ##[group]Checking out the ref
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.6835523Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/4/merge
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.6914055Z Note: switching to 'refs/remotes/pull/4/merge'.
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.6916023Z 
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.6917303Z You are in 'detached HEAD' state. You can look around, make experimental
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.6919736Z changes and commit them, and you can discard any commits you make in this
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.6922168Z state without impacting any branches by switching back to a branch.
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.6923785Z 
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.6925107Z If you want to create a new branch to retain commits you create, you may
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.6927532Z do so (now or later) by using -c with the switch command. Example:
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.6928942Z 
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.6929797Z   git switch -c <new-branch-name>
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.6930842Z 
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.6931765Z Or undo this operation with:
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.6932952Z 
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.6933780Z   git switch -
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.6935893Z 
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.6937295Z Turn off this advice by setting config variable advice.detachedHead to false
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.6938532Z 
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.6940155Z HEAD is now at 0e85e5b Merge 59ba3f10eee3137a0b2b90d260dbfddeeb228ce5 into f8f16ad0a10adfb0561c0cf05881083229932325
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.6945914Z ##[endgroup]
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.6976500Z [command]/usr/bin/git log -1 --format=%H
+Lint	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.7008453Z 0e85e5b839706718468d4ea0a95dd949b5c74a04
+Lint	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	﻿2026-09-07T19:25:47.7611182Z ##[group]Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d
+Lint	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:47.7612875Z with:
+Lint	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:47.7613779Z   enable-cache: true
+Lint	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:47.7614915Z   activate-environment: false
+Lint	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:47.7616016Z   no-project: false
+Lint	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:47.7617762Z   working-directory: /home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester
+Lint	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:47.7629487Z   github-token: ***
+Lint	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:47.7631864Z   cache-dependency-glob: **/*requirements*.txt
+Lint	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	**/*requirements*.in
+Lint	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	**/*constraints*.txt
+Lint	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	**/*constraints*.in
+Lint	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	**/pyproject.toml
+Lint	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	**/uv.lock
+Lint	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	**/*.py.lock
+Lint	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	
+Lint	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:47.7634722Z   restore-cache: true
+Lint	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:47.7635712Z   save-cache: true
+Lint	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:47.7636665Z   prune-cache: false
+Lint	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:47.7637638Z   cache-python: false
+Lint	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:47.7638690Z   ignore-nothing-to-cache: false
+Lint	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:47.7639840Z   ignore-empty-workdir: false
+Lint	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:47.7641025Z   download-from-astral-mirror: true
+Lint	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:47.7642287Z   add-problem-matchers: true
+Lint	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:47.7643349Z   quiet: false
+Lint	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:47.7644286Z   resolution-strategy: highest
+Lint	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:47.7645514Z ##[endgroup]
+Lint	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:47.9479160Z Trying to find version for uv in: /home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/uv.toml
+Lint	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:47.9482496Z Could not find file: /home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/uv.toml
+Lint	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:47.9486100Z Trying to find version for uv in: /home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/pyproject.toml
+Lint	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:47.9489319Z Could not find file: /home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/pyproject.toml
+Lint	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:47.9492003Z Could not determine uv version from uv.toml or pyproject.toml. Falling back to latest.
+Lint	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:47.9506598Z Fetching manifest data from https://raw.githubusercontent.com/astral-sh/versions/main/v1/uv.ndjson ...
+Lint	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:48.0157520Z Downloading uv from "https://releases.astral.sh/github/uv/releases/download/0.12.10/uv-x86_64-unknown-linux-gnu.tar.gz" ...
+Lint	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:48.1953559Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/6d3ee97e-21a4-4a6d-bfc6-dda5a4d02744 -f /home/runner/work/_temp/505dfb2a-1cae-4811-a9ab-dbf5ab3aa3ff
+Lint	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:48.6099198Z Added /home/runner/.local/bin to the path
+Lint	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:48.6111756Z Added /opt/hostedtoolcache/uv/0.12.10/x86_64 to the path
+Lint	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:48.6113125Z Set UV_PYTHON_INSTALL_DIR to /home/runner/work/_temp/uv-python-dir
+Lint	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:48.6114775Z Added /home/runner/work/_temp/uv-python-dir to the path
+Lint	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:48.6144066Z Set UV_CACHE_DIR to /home/runner/work/_temp/setup-uv-cache
+Lint	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:48.6145705Z Successfully installed uv version 0.12.10
+Lint	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:48.6770135Z Searching files using cache dependency glob: /home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/**/*requirements*.txt,/home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/**/*requirements*.in,/home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/**/*constraints*.txt,/home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/**/*constraints*.in,/home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/**/pyproject.toml,/home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/**/uv.lock,/home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/**/*.py.lock
+Lint	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:48.7333010Z /home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/modules/tool-ios-inspector/pyproject.toml
+Lint	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:48.7388411Z Found 1 files to hash.
+Lint	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:48.7469835Z Trying to restore cache from GitHub Actions cache with key: setup-uv-2-x86_64-unknown-linux-gnu-ubuntu-24.04-3.12.3-77e99a7fa7373ba2761c5b845f18a598e1b2f921dc30ca909dc94137dc44b8f3
+Lint	Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d	2026-09-07T19:25:48.8071179Z No GitHub Actions cache found for key: setup-uv-2-x86_64-unknown-linux-gnu-ubuntu-24.04-3.12.3-77e99a7fa7373ba2761c5b845f18a598e1b2f921dc30ca909dc94137dc44b8f3
+Lint	Lint (ruff)	﻿2026-09-07T19:25:48.9230460Z ##[group]Run uvx ruff@0.16.6 check --isolated --select E4,E7,E9,F .
+Lint	Lint (ruff)	2026-09-07T19:25:48.9231163Z [36;1muvx ruff@0.16.6 check --isolated --select E4,E7,E9,F .[0m
+Lint	Lint (ruff)	2026-09-07T19:25:48.9278429Z shell: /usr/bin/bash -e {0}
+Lint	Lint (ruff)	2026-09-07T19:25:48.9278840Z env:
+Lint	Lint (ruff)	2026-09-07T19:25:48.9279199Z   UV_PYTHON_INSTALL_DIR: /home/runner/work/_temp/uv-python-dir
+Lint	Lint (ruff)	2026-09-07T19:25:48.9279661Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+Lint	Lint (ruff)	2026-09-07T19:25:48.9280018Z ##[endgroup]
+Lint	Lint (ruff)	2026-09-07T19:25:49.1636000Z Downloading ruff (9.8MiB)
+Lint	Lint (ruff)	2026-09-07T19:25:49.2603293Z  Downloaded ruff
+Lint	Lint (ruff)	2026-09-07T19:25:49.2632847Z Installed 1 package in 2ms
+Lint	Lint (ruff)	2026-09-07T19:25:49.3220076Z F821 Undefined name `this_name_is_not_defined`
+Lint	Lint (ruff)	2026-09-07T19:25:49.3220639Z  --> scripts/redproof_lint.py:5:12
+Lint	Lint (ruff)	2026-09-07T19:25:49.3220929Z   |
+Lint	Lint (ruff)	2026-09-07T19:25:49.3221145Z 4 | def red_proof() -> str:
+Lint	Lint (ruff)	2026-09-07T19:25:49.3221429Z 5 |     return this_name_is_not_defined
+Lint	Lint (ruff)	2026-09-07T19:25:49.3221738Z   |            ^^^^^^^^^^^^^^^^^^^^^^^^
+Lint	Lint (ruff)	2026-09-07T19:25:49.3221996Z 
+Lint	Lint (ruff)	2026-09-07T19:25:49.3222097Z Found 1 error.
+Lint	Lint (ruff)	2026-09-07T19:25:49.3266382Z ##[error]Process completed with exit code 1.
+Lint	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	﻿2026-09-07T19:25:49.3416529Z Post job cleanup.
+Lint	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:49.4320751Z [command]/usr/bin/git version
+Lint	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:49.4359519Z git version 2.55.0
+Lint	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:49.4396560Z Temporarily overriding HOME='/home/runner/work/_temp/48865963-71ca-4d08-a90f-c71d9eb621de' before making global git config changes
+Lint	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:49.4397901Z Adding repository directory to the temporary git global config as a safe directory
+Lint	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:49.4402870Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester
+Lint	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:49.4441564Z Removing SSH command configuration
+Lint	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:49.4448430Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+Lint	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:49.4488711Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+Lint	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:49.4734839Z Removing HTTP extra header
+Lint	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:49.4740645Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+Lint	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:49.4779393Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+Lint	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:49.5024285Z Removing includeIf entries pointing to credentials config files
+Lint	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:49.5031435Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+Lint	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:49.5061304Z includeif.gitdir:/home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/.git.path
+Lint	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:49.5062751Z includeif.gitdir:/home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/.git/worktrees/*.path
+Lint	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:49.5063701Z includeif.gitdir:/github/workspace/.git.path
+Lint	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:49.5064276Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+Lint	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:49.5071682Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/.git.path
+Lint	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:49.5097475Z /home/runner/work/_temp/git-credentials-7cf210b6-de1f-4080-9937-799d06ac8f9c.config
+Lint	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:49.5108839Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/.git.path \/home\/runner\/work\/_temp\/git\-credentials\-7cf210b6\-de1f\-4080\-9937\-799d06ac8f9c\.config
+Lint	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:49.5145768Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/.git/worktrees/*.path
+Lint	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:49.5179116Z /home/runner/work/_temp/git-credentials-7cf210b6-de1f-4080-9937-799d06ac8f9c.config
+Lint	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:49.5189900Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/.git/worktrees/*.path \/home\/runner\/work\/_temp\/git\-credentials\-7cf210b6\-de1f\-4080\-9937\-799d06ac8f9c\.config
+Lint	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:49.5228755Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+Lint	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:49.5254224Z /github/runner_temp/git-credentials-7cf210b6-de1f-4080-9937-799d06ac8f9c.config
+Lint	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:49.5263771Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-7cf210b6\-de1f\-4080\-9937\-799d06ac8f9c\.config
+Lint	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:49.5302970Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+Lint	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:49.5327111Z /github/runner_temp/git-credentials-7cf210b6-de1f-4080-9937-799d06ac8f9c.config
+Lint	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:49.5336589Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-7cf210b6\-de1f\-4080\-9937\-799d06ac8f9c\.config
+Lint	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:49.5372467Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+Lint	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:49.5612092Z Removing credentials config '/home/runner/work/_temp/git-credentials-7cf210b6-de1f-4080-9937-799d06ac8f9c.config'
+Lint	Complete job	﻿2026-09-07T19:25:49.5763990Z Cleaning up orphan processes
