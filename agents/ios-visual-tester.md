@@ -2,55 +2,14 @@
 meta:
   name: ios-visual-tester
   description: |
-    Validates the visual quality of iOS screens — screenshot sweeps across screens,
-    devices and simulators, detection of clipping, blank regions, overlap and
-    misalignment, and before/after comparison to confirm a layout fix actually landed.
-    Reconciles the accessibility tree (points) against the rendered image (pixels)
-    to produce defect reports with exact geometry.
-
-    Use PROACTIVELY when the user needs:
-    - Screenshots of every screen or tab, reviewed for visual defects
-    - Confirmation that a layout or styling fix is visible on a simulator or device
-    - Detection of clipped text, blank areas, overlapping elements, cut-off lists
-    - Before/after visual comparison of an iOS UI change
-    - A visual regression sweep after a refactor
-    - Safe-area / notch / home-indicator collision review
-
-    **Authoritative on:** iOS visual quality — screenshot sweeps, clipping and
-    blank-region detection, overlap and truncation, before/after comparison,
-    **points-vs-pixels reconciliation of tree geometry against rendered output**,
-    safe-area insets, severity classification of visual defects.
-
-    <example>
-    Context: User fixed an iOS layout and wants visual confirmation
-    user: 'The item list was getting cut off behind the home indicator — I fixed the safe area, does it look right now?'
-    assistant: 'I will delegate to ios-tester:ios-visual-tester to capture the list before and after and confirm the clipping is resolved.'
-    <commentary>
-    Visual verification of a layout fix is exactly the visual-tester specialty — and the
-    only way to catch a render-layer regression that unit tests pass through.
-    </commentary>
-    </example>
-
-    <example>
-    Context: User wants a broad visual review
-    user: 'Screenshot every tab and tell me what looks broken'
-    assistant: 'I will delegate to ios-tester:ios-visual-tester for a full sweep with the visual defect checklist applied to each capture.'
-    <commentary>
-    Systematic multi-screen visual review with severity classification is the
-    visual-tester workflow.
-    </commentary>
-    </example>
-
-    <example>
-    Context: User wants to see the real device screen, not a simulator
-    user: 'Grab a screenshot off my actual iPhone and tell me if the header looks clipped'
-    assistant: 'I will delegate to ios-tester:ios-visual-tester — device_screenshot works on the free tier, though it will note that no frame geometry is available for reconciliation.'
-    <commentary>
-    The visual tester knows the device tier can SEE but not TAP, and that its element
-    list has no geometry — so it reports appearance without claiming measured geometry.
-    </commentary>
-    </example>
-
+    USE WHEN the question about an iOS screen is how it LOOKS: screenshots of every
+    screen/tab reviewed for defects; confirming a layout or styling fix landed;
+    detecting clipped text, blank areas, overlap, misalignment, cut-off lists;
+    before/after comparison of a change; a visual regression sweep;
+    safe-area/notch/home-indicator collisions. Covers points-vs-pixels reconciliation of
+    tree geometry against the render, truncation, severity grading, and device-tier
+    review (it sees, never taps; no geometry). DO NOT USE to drive a flow
+    (ios-operator), root-cause the break (ios-debugger), or Android/web/TUI.
 model_role: [vision, critique, general]
 ---
 

@@ -1,0 +1,16 @@
+validate-agents v1.7.0  |  run-8cb72a91588c  |  foundation @v2.1.2 (a27d5824517d078097b60d84779dd3eae80202cd)
+repo_path: /tmp/kp79-ios-main   (git worktree at merge-base a1fe589cf66c633a98d34e4f55847bc8949340e6)
+
+VERDICT: FAIL
+  agents discovered: 3 across 1 location (candidates_scanned 3, non_agent_count 0)
+  quality: 0 good, 0 polish, 0 needs_work, 3 critical
+  structural summary: {"errors": 6, "passed": 0, "total": 3, "warnings": 3}
+
+  ios-debugger       desc 2515 chars / 628 tok  example_count 3  commentary_count 3
+                     ERROR COMMENTARY_TAG_PRESENT, ERROR EXAMPLE_BLOCK_PRESENT
+  ios-operator       desc 2507 chars / 626 tok  example_count 3  commentary_count 3
+                     ERROR COMMENTARY_TAG_PRESENT, ERROR EXAMPLE_BLOCK_PRESENT
+  ios-visual-tester  desc 2524 chars / 631 tok  example_count 3  commentary_count 3
+                     ERROR COMMENTARY_TAG_PRESENT, ERROR EXAMPLE_BLOCK_PRESENT
+
+  warnings (3): NO_TOOLS_SECTION x3  -- pre-existing on main, unchanged by this branch

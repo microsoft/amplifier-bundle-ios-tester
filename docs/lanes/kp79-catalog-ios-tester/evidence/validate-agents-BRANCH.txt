@@ -1,0 +1,15 @@
+validate-agents v1.7.0  |  run-09409491f14b  |  foundation @v2.1.2 (a27d5824517d078097b60d84779dd3eae80202cd)
+repo_path: <this worktree>  (branch lane/kp79-catalog-ios-tester)
+
+VERDICT: PASS WITH WARNINGS
+  agents discovered: 3 across 1 location (candidates_scanned 3, non_agent_count 0)
+  quality: 0 good, 0 polish, 3 needs_work, 0 critical   (needs_work driven ONLY by NO_TOOLS_SECTION)
+  structural summary: {"errors": 0, "passed": 3, "total": 3, "warnings": 3}
+
+  ios-debugger       desc  601 chars / 150 tok  example_count 0  commentary_count 0  triggers ["DO NOT"]
+  ios-operator       desc  636 chars / 159 tok  example_count 0  commentary_count 0  triggers ["MUST","DO NOT"]
+  ios-visual-tester  desc  603 chars / 150 tok  example_count 0  commentary_count 0  triggers ["DO NOT"]
+
+  warnings (3): NO_TOOLS_SECTION x3  -- identical to stock; accepted, not remediated (see DONE-NOTE)
+
+TRANSITION: FAIL -> PASS WITH WARNINGS.  NOT "PASS held" -- stock carried 6 structural ERRORs.
