@@ -1,0 +1,8 @@
+[tool surface] stock tokens: 59   lean tokens: 60
+[tool surface] ABSENT: 0
+[awareness] stock tokens: 22   lean tokens: 21
+[awareness] RELOCATED (still in the head, different file): ['estimated_uid', 'platform_identifier', 'spoken_description']
+[awareness] ABSENT: 0
+[whole head] stock tokens: 74   lean tokens: 76
+[whole head] ABSENT: 0
+PASS -- nothing absent from the head.

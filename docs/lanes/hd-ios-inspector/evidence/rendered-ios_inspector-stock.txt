@@ -1,0 +1,38 @@
+Drive and inspect iOS apps on a booted Simulator, or read-only inspect a physical device, on a macOS host (local, or a remote Mac via 'ssh_host').
+
+axe describe-ui is the sensor -- every interaction resolves a selector against the live accessibility tree before acting. Screenshots are for visual judgment only, never for computing tap coordinates. The accessibility tree reports POINTS; screenshots report PIXELS -- ui_dump always returns both, explicitly labeled ('frame_points'/'frame_pixels', 'center_points'/'center_pixels'), plus the measured 'scale' factor. Never trust a bare coordinate whose unit is ambiguous.
+
+Environment:
+- doctor: full host readiness report (macOS, DEVELOPER_DIR/Xcode, simctl, axe, pymobiledevice3, runtimes, booted simulators, physical devices, per-device Developer Mode + passcode-blocker awareness, DDI availability vs each device's iOS version) -- every check runs even if an earlier one fails; never errors, always returns a report
+- list_targets: simulators + physical devices, one list; ambiguous (>1 ready target, no explicit 'udid') is an error
+
+Simulator lifecycle:
+- create_sim, boot, shutdown, install, launch, terminate
+- create_sim: 'name' required; 'device_type'/'runtime' OPTIONAL -- accept a friendly name ('iPhone 17 Pro', 'iOS 26.5') or a full identifier, and default to a recent available iPhone / the newest available runtime when omitted. An unrecognised friendly name errors listing what IS available.
+- boot/create_sim/install/launch/screenshot/ui_dump each have their own, larger timeout budget (config: 'boot_timeout_s', 'create_sim_timeout_s', 'install_timeout_s', 'launch_timeout_s', 'ui_dump_timeout_s', 'screenshot_timeout_s'; global fallback: 'command_timeout_s', default 120s) -- sized for real ssh_host + first-run CoreSimulator latency. A timeout ALWAYS raises a distinct, clearly-worded error naming the command and the exceeded budget -- never surfaces as an empty/absent result.
+- CoreSimulator's own benign 'Install Started'/'Install Failed: Authorization is required to install the packages.' noise (seen on many simctl commands, harmless -- it is CoreSimulator being denied permission to install OPTIONAL components, not the command failing) never turns a successful command into an error; when present it is surfaced in a 'warnings' field instead
+
+Simulator sensing:
+- screenshot: writes a PNG to disk (path, never inline), fetched via the runner's local/ssh-transparent file transfer
+- ui_dump: parsed accessibility tree (type, role, label, value, unique_id, enabled, frame_points+frame_pixels, center_points+center_pixels, scale) -- not raw JSON
+- find: nodes matching a selector, resolved centers in both units
+- logs: bounded `simctl spawn log stream` capture (no built-in duration limit upstream, so this tool always caps it and treats the timeout as normal termination, not failure)
+
+Simulator interacting -- selector-first:
+- tap: dump -> resolve selector -> tap via axe's VERIFIED '--label' resolution (using the resolved node's own label) -> re-dump -> report. Refuses if the resolved node has no label rather than guessing a coordinate. Reports the coordinate axe actually resolved and tapped -- 'tapped_at_points'/'tapped_at_pixels' (parsed from axe's own tap-confirmation output, never a bare guess), plus 'before' (the resolved node's own label/type/frame_points/frame_pixels, i.e. WHAT was tapped, not just where). A null in tapped_at_points/pixels is never silent -- 'tap_point_note' explains exactly why (axe's confirmation didn't parse, vs. the point parsed fine but pixel scale is unavailable). 'total_node_count_before'/'total_node_count_after' count the SAME population as ui_dump's 'total_node_count' (every node, not the labelled/valued-only population behind ui_dump's 'node_count') -- named explicitly so the two never look like the same number under a same-sounding name.
+- tap_xy: RAW point coordinates via an INFERRED axe coordinate-tap flag (not independently verified) -- always warns
+- type_text: tap to focus -> INFERRED 'axe type' -> re-dump. Cannot assert focus was gained (iOS accessibility JSON here carries no 'focused' attribute) -- always warns. Also reports 'tapped_at_points'/'tapped_at_pixels'/'tap_point_note' for the tap-to-focus step (same protocol as 'tap' above), and an explicit 'value_after_note' (never a silent null) when the selector could no longer be re-resolved after typing to read back 'value_after'.
+- key, swipe: INFERRED axe argv shapes, not independently verified
+- wait_for: polls ui_dump until a selector appears/disappears, or timeout -- no bare sleeps
+
+Device tier (read-only sensing; free, no Apple Developer account):
+- device_info: ProductVersion/ProductType/DeviceName/CPUArchitecture + DeveloperModeStatus, asked of the DEVICE (pymobiledevice3-preferred over a local-only check -- see design doc's 'tool error vs device error')
+- device_screenshot: requires the Developer Disk Image mounted first (see device_mount_ddi)
+- device_apps: INFERRED pymobiledevice3 'apps list'
+- device_elements: VERIFIED pymobiledevice3 accessibility list-items -- NO GEOMETRY (caption/estimated_uid/platform_identifier/spoken_description only)
+- device_enable_devmode: if blocked by a set passcode (undocumented Apple behaviour), the error names the temporary-disable-then-restore guidance in the SAME message -- never a bare 'turn off your passcode'
+- device_mount_ddi: selects the nearest DDI version at or below the device's iOS version (never assumes the newest Xcode-shipped DDI is right -- newer Xcode may ship none for this device at all)
+
+tap/tap_xy on backend='device' ALWAYS refuse -- see device_elements' 'no geometry' limitation above.
+
+Selector: {"label": "General"} | {"label_contains": "Gener"} | {"value": "On"} | {"role": "..."} | {"type": "..."} | {"unique_id": "..."}, optional "index" to disambiguate. Multiple keys AND together. An ambiguous match (>1 node, no index) is an error listing candidates.
