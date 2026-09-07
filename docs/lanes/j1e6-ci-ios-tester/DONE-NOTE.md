@@ -12,7 +12,7 @@
 | # | Deliverable | State |
 |---|---|---|
 | 1 | `.github/workflows/ci.yml` running the real suite, ruff pinned, `push:main` + `pull_request:main`, no path filters / error-suppressing directives / exit-code-discarding fallbacks | **DONE** — `c15ef3c` |
-| 2 | BOTH run URLs quoted in the PR body; the RED run's job log shows the suite executing with a genuine **test** failure | **DONE** — RED `34155526997`, GREEN `34155703062` / `34155…` (final head), both quoted in PR #5 |
+| 2 | BOTH run URLs quoted in the PR body; the RED run's job log shows the suite executing with a genuine **test** failure | **DONE** — RED `34155526997`, GREEN `34155844705` (final head), both quoted in PR #5 and verified by re-reading the body |
 | 3 | Scratch PR closed and its branch deleted — verified, not assumed | **DONE** — PR #4 `CLOSED`; `git ls-remote --heads origin ci-red-proof-j1e6` → **0 lines** |
 | 4 | A statement of what the suite actually covers | **DONE** — **165 tests across 9 files**, real unit tests, **not** an import smoke. Stated in the PR body and below. |
 | 5 | If clean main is red: stop, report, fix as separate named commits | **N/A — clean main was GREEN.** Zero ruff findings at `f8f16ad`. Nothing to fix, nothing weakened. |
@@ -72,6 +72,7 @@ Deliverable 5's stop-and-report branch never triggered: `ruff 0.16.6 --isolated 
 2. **`enable-cache: true` is safe in a lockfile-less repo of this shape** — `setup-uv` v10.0.1, no `uv.lock` anywhere, four checks green. The wayfinder lane saw setup hard-fail on a cache keyed to `**/uv.lock`; that did not reproduce here, on the pinned v10.0.1 action. The typo to avoid remains `enable-caching:` (not a valid input, silently ignored — browser-tester ships it).
 3. **`uv sync` writes a `uv.lock` into the module directory.** It appeared untracked mid-lane and was deleted before any `git add -A`; had it been committed, this repo's "no lockfile" premise and the workflow's own comments would have been quietly falsified.
 4. **Three jobs, four checks.** The matrix means job *definitions* and required *checks* are different counts — worth stating explicitly when someone later configures branch protection.
+5. **`gh pr edit --body` can EXIT 0 AND NOT WRITE THE BODY.** Updating this PR with the GREEN run URL printed only a `Projects (classic) is being deprecated … (repository.pullRequest.projectCards)` GraphQL notice and returned success; a read-back showed the body byte-for-byte unchanged, still missing the GREEN URL. `gh pr ready` in the same command chain *did* work, so the chain looked healthy. The deliverable "both run URLs quoted in the PR body" would have been self-reported DONE and been false. **Fix: `gh api -X PATCH repos/OWNER/REPO/pulls/N --input payload.json`**, which uses REST and does not touch project cards — then re-read the body and grep for both URLs. This is the same class as the `74w` publication defect the marker contract exists to catch: never trust a write tool's success message, read the value back.
 
 ---
 
