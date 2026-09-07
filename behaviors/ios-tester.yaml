@@ -31,3 +31,6 @@ agents:
 context:
   include:
     - ios-tester:context/ios-awareness.md
+
+SCRATCH ONLY: deliberate YAML syntax error to prove the structure job bites
+  : [unclosed
