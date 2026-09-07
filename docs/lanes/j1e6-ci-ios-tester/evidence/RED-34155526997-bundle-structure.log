@@ -1,0 +1,274 @@
+Bundle structure (YAML)	Set up job	﻿2026-09-07T19:25:46.1723251Z Current runner version: '2.337.0'
+Bundle structure (YAML)	Set up job	2026-09-07T19:25:46.1759218Z ##[group]Runner Image Provisioner
+Bundle structure (YAML)	Set up job	2026-09-07T19:25:46.1760484Z Hosted Compute Agent
+Bundle structure (YAML)	Set up job	2026-09-07T19:25:46.1761456Z Version: 20260828.587
+Bundle structure (YAML)	Set up job	2026-09-07T19:25:46.1762417Z Commit: abac92662cab4cc7352de4f9f9d2e2419aad9c29
+Bundle structure (YAML)	Set up job	2026-09-07T19:25:46.1763510Z Build Date: 2026-08-28T16:44:25Z
+Bundle structure (YAML)	Set up job	2026-09-07T19:25:46.1764748Z Worker ID: {5f582618-6b58-48fb-a74d-da4169d27bae}
+Bundle structure (YAML)	Set up job	2026-09-07T19:25:46.1765889Z Azure Region: eastus2
+Bundle structure (YAML)	Set up job	2026-09-07T19:25:46.1766942Z ##[endgroup]
+Bundle structure (YAML)	Set up job	2026-09-07T19:25:46.1770104Z ##[group]Operating System
+Bundle structure (YAML)	Set up job	2026-09-07T19:25:46.1771114Z Ubuntu
+Bundle structure (YAML)	Set up job	2026-09-07T19:25:46.1772147Z 24.04.4
+Bundle structure (YAML)	Set up job	2026-09-07T19:25:46.1772957Z LTS
+Bundle structure (YAML)	Set up job	2026-09-07T19:25:46.1773875Z ##[endgroup]
+Bundle structure (YAML)	Set up job	2026-09-07T19:25:46.1774760Z ##[group]Runner Image
+Bundle structure (YAML)	Set up job	2026-09-07T19:25:46.1775703Z Image: ubuntu-24.04
+Bundle structure (YAML)	Set up job	2026-09-07T19:25:46.1777081Z Version: 20260831.293.1
+Bundle structure (YAML)	Set up job	2026-09-07T19:25:46.1779105Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260831.293/images/ubuntu/Ubuntu2404-Readme.md
+Bundle structure (YAML)	Set up job	2026-09-07T19:25:46.1782151Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260831.293
+Bundle structure (YAML)	Set up job	2026-09-07T19:25:46.1783759Z ##[endgroup]
+Bundle structure (YAML)	Set up job	2026-09-07T19:25:46.1785628Z ##[group]GITHUB_TOKEN Permissions
+Bundle structure (YAML)	Set up job	2026-09-07T19:25:46.1788769Z Contents: read
+Bundle structure (YAML)	Set up job	2026-09-07T19:25:46.1789843Z Metadata: read
+Bundle structure (YAML)	Set up job	2026-09-07T19:25:46.1790796Z ##[endgroup]
+Bundle structure (YAML)	Set up job	2026-09-07T19:25:46.1794137Z Secret source: Actions
+Bundle structure (YAML)	Set up job	2026-09-07T19:25:46.1795996Z Prepare workflow directory
+Bundle structure (YAML)	Set up job	2026-09-07T19:25:46.2275647Z Prepare all required actions
+Bundle structure (YAML)	Set up job	2026-09-07T19:25:46.2347585Z Getting action download info
+Bundle structure (YAML)	Set up job	2026-09-07T19:25:46.4381975Z Download action repository 'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+Bundle structure (YAML)	Set up job	2026-09-07T19:25:46.5296076Z Download action repository 'actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97' (SHA:5fda3b95a4ea91299a34e894583c3862153e4b97)
+Bundle structure (YAML)	Set up job	2026-09-07T19:25:46.7225701Z Complete job name: Bundle structure (YAML)
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	﻿2026-09-07T19:25:46.8010090Z ##[group]Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.8011229Z with:
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.8011766Z   repository: microsoft/amplifier-bundle-ios-tester
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.8015678Z   token: ***
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.8016122Z   ssh-strict: true
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.8016572Z   ssh-user: git
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.8017029Z   persist-credentials: true
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.8017528Z   clean: true
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.8017974Z   sparse-checkout-cone-mode: true
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.8018735Z   fetch-depth: 1
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.8019178Z   fetch-tags: false
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.8019626Z   show-progress: true
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.8020074Z   lfs: false
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.8020490Z   submodules: false
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.8020940Z   set-safe-directory: true
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.8021451Z   allow-unsafe-pr-checkout: false
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.8022169Z ##[endgroup]
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.9047505Z Syncing repository: microsoft/amplifier-bundle-ios-tester
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.9049939Z ##[group]Getting Git version info
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.9051258Z Working directory is '/home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester'
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.9052770Z [command]/usr/bin/git version
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.9087567Z git version 2.55.0
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.9107505Z ##[endgroup]
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.9119643Z Temporarily overriding HOME='/home/runner/work/_temp/9f7915ca-4b55-47a3-b0ff-7b58e3e807ef' before making global git config changes
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.9121812Z Adding repository directory to the temporary git global config as a safe directory
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.9125428Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.9170273Z Deleting the contents of '/home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester'
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.9173628Z ##[group]Determining repository object format
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.9175191Z ##[endgroup]
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.9175917Z ##[group]Initializing the repository
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.9180270Z [command]/usr/bin/git init /home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.9257188Z hint: Using 'master' as the name for the initial branch. This default branch name
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.9258900Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.9259851Z hint: to use in all of your new repositories, which will suppress this warning,
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.9260577Z hint: call:
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.9261146Z hint:
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.9261877Z hint: 	git config --global init.defaultBranch <name>
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.9262769Z hint:
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.9263349Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.9264532Z hint: 'development'. The just-created branch can be renamed via this command:
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.9265524Z hint:
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.9265943Z hint: 	git branch -m <name>
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.9266425Z hint:
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.9267049Z hint: Disable this message with "git config set advice.defaultBranchName false"
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.9268339Z Initialized empty Git repository in /home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/.git/
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.9271462Z [command]/usr/bin/git remote add origin https://github.com/microsoft/amplifier-bundle-ios-tester
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.9317318Z ##[endgroup]
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.9318142Z ##[group]Disabling automatic garbage collection
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.9321001Z [command]/usr/bin/git config --local gc.auto 0
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.9355457Z ##[endgroup]
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.9356900Z ##[group]Setting up auth
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.9357481Z Removing SSH command configuration
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.9361977Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.9397341Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.9737463Z Removing HTTP extra header
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.9743828Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:46.9777919Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.0062240Z Removing includeIf entries pointing to credentials config files
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.0067348Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.0102531Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.0350085Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-12f10ea8-f5ab-4bed-86eb-9120e9f46147.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.0393002Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/.git.path /home/runner/work/_temp/git-credentials-12f10ea8-f5ab-4bed-86eb-9120e9f46147.config
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.0425654Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-12f10ea8-f5ab-4bed-86eb-9120e9f46147.config
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.0462435Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-12f10ea8-f5ab-4bed-86eb-9120e9f46147.config
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.0495886Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-12f10ea8-f5ab-4bed-86eb-9120e9f46147.config
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.0526423Z ##[endgroup]
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.0527243Z ##[group]Fetching the repository
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.0533765Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +0e85e5b839706718468d4ea0a95dd949b5c74a04:refs/remotes/pull/4/merge
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.3630578Z From https://github.com/microsoft/amplifier-bundle-ios-tester
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.3631990Z  * [new ref]         0e85e5b839706718468d4ea0a95dd949b5c74a04 -> pull/4/merge
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.3635753Z ##[endgroup]
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.3637367Z ##[group]Determining the checkout info
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.3639643Z ##[endgroup]
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.3643154Z [command]/usr/bin/git sparse-checkout disable
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.3696085Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.3728355Z ##[group]Checking out the ref
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.3733964Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/4/merge
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.3877853Z Note: switching to 'refs/remotes/pull/4/merge'.
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.3879109Z 
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.3879602Z You are in 'detached HEAD' state. You can look around, make experimental
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.3880725Z changes and commit them, and you can discard any commits you make in this
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.3882040Z state without impacting any branches by switching back to a branch.
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.3882979Z 
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.3883715Z If you want to create a new branch to retain commits you create, you may
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.3885195Z do so (now or later) by using -c with the switch command. Example:
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.3886027Z 
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.3886388Z   git switch -c <new-branch-name>
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.3886986Z 
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.3887362Z Or undo this operation with:
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.3887947Z 
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.3888291Z   git switch -
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.3889020Z 
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.3890353Z Turn off this advice by setting config variable advice.detachedHead to false
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.3891482Z 
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.3892809Z HEAD is now at 0e85e5b Merge 59ba3f10eee3137a0b2b90d260dbfddeeb228ce5 into f8f16ad0a10adfb0561c0cf05881083229932325
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.3896969Z ##[endgroup]
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.3937167Z [command]/usr/bin/git log -1 --format=%H
+Bundle structure (YAML)	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:47.3967441Z 0e85e5b839706718468d4ea0a95dd949b5c74a04
+Bundle structure (YAML)	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	﻿2026-09-07T19:25:47.4303361Z ##[group]Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+Bundle structure (YAML)	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-09-07T19:25:47.4304261Z with:
+Bundle structure (YAML)	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-09-07T19:25:47.4304741Z   python-version: 3.13
+Bundle structure (YAML)	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-09-07T19:25:47.4390236Z   check-latest: false
+Bundle structure (YAML)	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-09-07T19:25:47.4395345Z   token: ***
+Bundle structure (YAML)	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-09-07T19:25:47.4395876Z   update-environment: true
+Bundle structure (YAML)	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-09-07T19:25:47.4396442Z   allow-prereleases: false
+Bundle structure (YAML)	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-09-07T19:25:47.4397013Z   freethreaded: false
+Bundle structure (YAML)	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-09-07T19:25:47.4397517Z ##[endgroup]
+Bundle structure (YAML)	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-09-07T19:25:47.5609337Z ##[group]Installed versions
+Bundle structure (YAML)	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-09-07T19:25:47.5685058Z Successfully set up CPython (3.13.15)
+Bundle structure (YAML)	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-09-07T19:25:47.5686874Z ##[endgroup]
+Bundle structure (YAML)	Install PyYAML	﻿2026-09-07T19:25:47.5837607Z ##[group]Run python -m pip install --quiet 'PyYAML>=6.0'
+Bundle structure (YAML)	Install PyYAML	2026-09-07T19:25:47.5838927Z [36;1mpython -m pip install --quiet 'PyYAML>=6.0'[0m
+Bundle structure (YAML)	Install PyYAML	2026-09-07T19:25:47.5891570Z shell: /usr/bin/bash -e {0}
+Bundle structure (YAML)	Install PyYAML	2026-09-07T19:25:47.5892209Z env:
+Bundle structure (YAML)	Install PyYAML	2026-09-07T19:25:47.5892797Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.15/x64
+Bundle structure (YAML)	Install PyYAML	2026-09-07T19:25:47.5893725Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.15/x64/lib/pkgconfig
+Bundle structure (YAML)	Install PyYAML	2026-09-07T19:25:47.5894603Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.15/x64
+Bundle structure (YAML)	Install PyYAML	2026-09-07T19:25:47.5895406Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.15/x64
+Bundle structure (YAML)	Install PyYAML	2026-09-07T19:25:47.5896234Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.15/x64
+Bundle structure (YAML)	Install PyYAML	2026-09-07T19:25:47.5897078Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.15/x64/lib
+Bundle structure (YAML)	Install PyYAML	2026-09-07T19:25:47.5897800Z ##[endgroup]
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	﻿2026-09-07T19:25:48.6766459Z ##[group]Run python - <<'PY'
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6767947Z [36;1mpython - <<'PY'[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6769459Z [36;1mimport pathlib[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6770628Z [36;1mimport sys[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6771676Z [36;1m[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6772619Z [36;1mimport yaml[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6773657Z [36;1m[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6774946Z [36;1mroot = pathlib.Path.cwd()[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6776226Z [36;1mfailures: list[str] = [][0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6777421Z [36;1mchecked = 0[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6778435Z [36;1m[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6779508Z [36;1mbundle_md = root / "bundle.md"[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6780810Z [36;1mif not bundle_md.is_file():[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6782161Z [36;1m    failures.append("bundle.md is missing")[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6783542Z [36;1melse:[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6784726Z [36;1m    text = bundle_md.read_text(encoding="utf-8")[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6786307Z [36;1m    if not text.startswith("---\n"):[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6788332Z [36;1m        failures.append("bundle.md: no YAML frontmatter (file does not open with '---')")[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6790647Z [36;1m    else:[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6791721Z [36;1m        end = text.find("\n---", 3)[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6793034Z [36;1m        if end == -1:[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6794674Z [36;1m            failures.append("bundle.md: frontmatter opened but never closed")[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6796483Z [36;1m        else:[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6797574Z [36;1m            data = None[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6798858Z [36;1m            try:[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6800107Z [36;1m                data = yaml.safe_load(text[4 : end + 1])[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6801590Z [36;1m                checked += 1[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6802904Z [36;1m            except yaml.YAMLError as exc:[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6804608Z [36;1m                failures.append("bundle.md frontmatter: " + str(exc))[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6806309Z [36;1m            if data is not None:[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6808132Z [36;1m                name = data.get("bundle", {}).get("name") if isinstance(data, dict) else None[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6810186Z [36;1m                if not name:[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6811891Z [36;1m                    failures.append("bundle.md frontmatter: missing bundle.name")[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6813681Z [36;1m                else:[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6815124Z [36;1m                    print("OK  bundle.md  (bundle.name=" + str(name) + ")")[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6816718Z [36;1m[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6817972Z [36;1mbehaviors = sorted((root / "behaviors").glob("*.yaml"))[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6819683Z [36;1mif not behaviors:[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6820828Z [36;1m    failures.append([0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6822778Z [36;1m        "behaviors/*.yaml matched NOTHING -- a structure gate that checks zero files is decoration"[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6824895Z [36;1m    )[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6825926Z [36;1mfor path in behaviors:[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6827432Z [36;1m    # .as_posix(), not str(): str() emits OS-native separators.[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6829431Z [36;1m    rel = path.relative_to(root).as_posix()[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6830802Z [36;1m    try:[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6832075Z [36;1m        data = yaml.safe_load(path.read_text(encoding="utf-8"))[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6833666Z [36;1m        checked += 1[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6834832Z [36;1m    except yaml.YAMLError as exc:[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6836231Z [36;1m        failures.append(rel + ": " + str(exc))[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6837587Z [36;1m        continue[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6839236Z [36;1m    name = data.get("bundle", {}).get("name") if isinstance(data, dict) else None[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6840989Z [36;1m    if not name:[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6842266Z [36;1m        failures.append(rel + ": missing bundle.name")[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6843692Z [36;1m    else:[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6844924Z [36;1m        print("OK  " + rel + "  (bundle.name=" + str(name) + ")")[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6846659Z [36;1m[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6847515Z [36;1mprint("")[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6848796Z [36;1mprint(str(checked) + " YAML document(s) parsed.")[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6850242Z [36;1mif failures:[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6851211Z [36;1m    print("")[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6852226Z [36;1m    print("FAILURES:")[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6853517Z [36;1m    for item in failures:[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6854696Z [36;1m        print("  - " + item)[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6855850Z [36;1m    sys.exit(1)[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6856988Z [36;1mprint("Bundle structure OK.")[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6858195Z [36;1mPY[0m
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6900536Z shell: /usr/bin/bash -e {0}
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6901612Z env:
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6902721Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.15/x64
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6904582Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.15/x64/lib/pkgconfig
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6906424Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.15/x64
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6908099Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.15/x64
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6910123Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.15/x64
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6911821Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.15/x64/lib
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.6913250Z ##[endgroup]
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.7428441Z OK  bundle.md  (bundle.name=ios-tester)
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.7430085Z 
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.7430665Z 1 YAML document(s) parsed.
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.7431585Z 
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.7432105Z FAILURES:
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.7433578Z   - behaviors/ios-tester.yaml: while parsing a block mapping
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.7435700Z   in "<unicode string>", line 1, column 1:
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.7437502Z     bundle:
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.7438844Z     ^
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.7440371Z expected <block end>, but found '<block mapping start>'
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.7442443Z   in "<unicode string>", line 36, column 3:
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.7444054Z       : [unclosed
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.7445309Z       ^
+Bundle structure (YAML)	Parse bundle.md frontmatter and behaviors/*.yaml	2026-09-07T19:25:48.7504190Z ##[error]Process completed with exit code 1.
+Bundle structure (YAML)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	﻿2026-09-07T19:25:48.7807053Z Post job cleanup.
+Bundle structure (YAML)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.8746732Z [command]/usr/bin/git version
+Bundle structure (YAML)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.8785602Z git version 2.55.0
+Bundle structure (YAML)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.8822773Z Temporarily overriding HOME='/home/runner/work/_temp/55de2466-7bab-4314-a4c8-41760307b9b8' before making global git config changes
+Bundle structure (YAML)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.8828013Z Adding repository directory to the temporary git global config as a safe directory
+Bundle structure (YAML)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.8833196Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester
+Bundle structure (YAML)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.8864947Z Removing SSH command configuration
+Bundle structure (YAML)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.8871489Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+Bundle structure (YAML)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.8912597Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+Bundle structure (YAML)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.9164872Z Removing HTTP extra header
+Bundle structure (YAML)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.9170489Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+Bundle structure (YAML)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.9209180Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+Bundle structure (YAML)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.9453341Z Removing includeIf entries pointing to credentials config files
+Bundle structure (YAML)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.9460589Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+Bundle structure (YAML)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.9493407Z includeif.gitdir:/home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/.git.path
+Bundle structure (YAML)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.9496611Z includeif.gitdir:/home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/.git/worktrees/*.path
+Bundle structure (YAML)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.9499370Z includeif.gitdir:/github/workspace/.git.path
+Bundle structure (YAML)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.9500951Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+Bundle structure (YAML)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.9505828Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/.git.path
+Bundle structure (YAML)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.9530437Z /home/runner/work/_temp/git-credentials-12f10ea8-f5ab-4bed-86eb-9120e9f46147.config
+Bundle structure (YAML)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.9544537Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/.git.path \/home\/runner\/work\/_temp\/git\-credentials\-12f10ea8\-f5ab\-4bed\-86eb\-9120e9f46147\.config
+Bundle structure (YAML)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.9592058Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/.git/worktrees/*.path
+Bundle structure (YAML)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.9619697Z /home/runner/work/_temp/git-credentials-12f10ea8-f5ab-4bed-86eb-9120e9f46147.config
+Bundle structure (YAML)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.9631003Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/amplifier-bundle-ios-tester/amplifier-bundle-ios-tester/.git/worktrees/*.path \/home\/runner\/work\/_temp\/git\-credentials\-12f10ea8\-f5ab\-4bed\-86eb\-9120e9f46147\.config
+Bundle structure (YAML)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.9668239Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+Bundle structure (YAML)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.9698449Z /github/runner_temp/git-credentials-12f10ea8-f5ab-4bed-86eb-9120e9f46147.config
+Bundle structure (YAML)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.9709302Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-12f10ea8\-f5ab\-4bed\-86eb\-9120e9f46147\.config
+Bundle structure (YAML)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.9747446Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+Bundle structure (YAML)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.9777195Z /github/runner_temp/git-credentials-12f10ea8-f5ab-4bed-86eb-9120e9f46147.config
+Bundle structure (YAML)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.9787942Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-12f10ea8\-f5ab\-4bed\-86eb\-9120e9f46147\.config
+Bundle structure (YAML)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:48.9830071Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+Bundle structure (YAML)	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-07T19:25:49.0101622Z Removing credentials config '/home/runner/work/_temp/git-credentials-12f10ea8-f5ab-4bed-86eb-9120e9f46147.config'
+Bundle structure (YAML)	Complete job	﻿2026-09-07T19:25:49.0284193Z Cleaning up orphan processes
