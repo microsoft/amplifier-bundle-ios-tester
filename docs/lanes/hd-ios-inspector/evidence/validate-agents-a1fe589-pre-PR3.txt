@@ -1,0 +1,93 @@
+recipe: validate-agents v1.5.1
+repo:   /tmp/ios-stock-a1fe589cf66c633a98d34e4f55847bc8949340e6
+agents: 3 | passed structural: 0 | ERRORs: 6 | WARNINGs: 3
+  - ios-operator         desc= 2507c examples=3 commentary=3 ERRORS=['COMMENTARY_TAG_PRESENT', 'EXAMPLE_BLOCK_PRESENT'] WARNINGS=['NO_TOOLS_SECTION']
+  - ios-debugger         desc= 2515c examples=3 commentary=3 ERRORS=['COMMENTARY_TAG_PRESENT', 'EXAMPLE_BLOCK_PRESENT'] WARNINGS=['NO_TOOLS_SECTION']
+  - ios-visual-tester    desc= 2524c examples=3 commentary=3 ERRORS=['COMMENTARY_TAG_PRESENT', 'EXAMPLE_BLOCK_PRESENT'] WARNINGS=['NO_TOOLS_SECTION']
+{
+  "phase": "classification",
+  "agents": [
+    {
+      "name": "ios-operator",
+      "quality": "critical",
+      "reason": "Structural errors - agent won't load",
+      "has_explicit_tools": false,
+      "has_strong_trigger": true,
+      "triggers_found": [
+        "PROACTIVELY"
+      ],
+      "has_examples": true,
+      "example_count": 3,
+      "description_length": 2507,
+      "has_model_role": true,
+      "model_role_value": [
+        "coding",
+        "general"
+      ],
+      "model_role_issues": [],
+      "error_count": 2,
+      "warning_count": 1
+    },
+    {
+      "name": "ios-debugger",
+      "quality": "critical",
+      "reason": "Structural errors - agent won't load",
+      "has_explicit_tools": false,
+      "has_strong_trigger": true,
+      "triggers_found": [
+        "PROACTIVELY"
+      ],
+      "has_examples": true,
+      "example_count": 3,
+      "description_length": 2515,
+      "has_model_role": true,
+      "model_role_value": [
+        "coding",
+        "reasoning",
+        "general"
+      ],
+      "model_role_issues": [],
+      "error_count": 2,
+      "warning_count": 1
+    },
+    {
+      "name": "ios-visual-tester",
+      "quality": "critical",
+      "reason": "Structural errors - agent won't load",
+      "has_explicit_tools": false,
+      "has_strong_trigger": true,
+      "triggers_found": [
+        "PROACTIVELY"
+      ],
+      "has_examples": true,
+      "example_count": 3,
+      "description_length": 2524,
+      "has_model_role": true,
+      "model_role_value": [
+        "vision",
+        "critique",
+        "general"
+      ],
+      "model_role_issues": [],
+      "error_count": 2,
+      "warning_count": 1
+    }
+  ],
+  "summary": {
+    "total": 3,
+    "good": 0,
+    "polish": 0,
+    "needs_work": 0,
+    "critical": 3
+  },
+  "quality_level": "critical",
+  "requires_llm_analysis": true,
+  "model_role_stats": {
+    "with_model_role": 3,
+    "without_model_role": 0,
+    "role_distribution": {
+      "coding": 2,
+      "general": 3,
+      "reasoni
+
+VERDICT: FAIL   (quality gate: None)

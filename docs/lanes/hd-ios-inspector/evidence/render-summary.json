@@ -1,0 +1,13 @@
+{
+  "tools_mounted": 86,
+  "all_tool_descriptions_bytes": {
+    "stock": 114677,
+    "lean": 113874,
+    "delta": -803
+  },
+  "ios_inspector_description_bytes": {
+    "stock": 5941,
+    "lean": 5138,
+    "delta": -803
+  }
+}
