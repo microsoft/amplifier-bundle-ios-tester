@@ -340,7 +340,18 @@ At `a1fe589` this repo had no `.github/` at all. `5bd78d8` (PR #5) added
 274 = 165 pre-existing + 109 added by this lane. The 165 are unchanged and no test in
 this repo references any description text other than the new file.
 
-The PR's own run is recorded in §9.
+**CI OBSERVED GREEN on the PR.** Draft PR
+[microsoft/amplifier-bundle-ios-tester#6](https://github.com/microsoft/amplifier-bundle-ios-tester/pull/6),
+head `04f4e2f4c25d7914a5bd153b56fa86bed97a9f4c`, read back from the remote —
+**5 of 5 checks pass**, run
+[34164822781](https://github.com/microsoft/amplifier-bundle-ios-tester/actions/runs/34164822781):
+`Bundle structure (YAML)` 7s, `Lint` 5s, `Tests — tool-ios-inspector (Python 3.11)`
+13s, `Tests — tool-ios-inspector (Python 3.13)` 10s, `license/cla`. That is the
+local prediction above, confirmed from the remote.
+
+**DRAFT, deliberately.** The goal says "publish one draft PR; do not merge." CI is
+green and recorded here, so the manager can mark ready and merge in one step with no
+further work from this lane. Nothing waits on a human decision.
 
 ---
 
