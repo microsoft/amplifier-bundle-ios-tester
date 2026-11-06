@@ -405,6 +405,7 @@ changed: []
 
 If you did not reach a root cause, say so plainly and report the failure-mode determination table anyway — narrowing five possibilities to one is most of the work. Every geometric figure in the report states its unit; unlabeled numbers do not appear.
 
+@ios-tester:context/ios-procedures.md
 @ios-tester:context/ios-guide.md
 @ios-tester:docs/TROUBLESHOOTING.md
 @foundation:context/shared/common-agent-base.md

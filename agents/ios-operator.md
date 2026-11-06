@@ -300,6 +300,7 @@ You get **3 attempts** on any single operation before you stop and report what y
 
 Every row must be backed by real evidence. If a row cannot be honestly filled, mark it `BLOCKED` with the reason rather than inventing a result. Omit the Security Round Trip table only when you changed no security setting — if you disabled one and did not restore it, that is a `NO` and it belongs in the report.
 
+@ios-tester:context/ios-procedures.md
 @ios-tester:context/ios-guide.md
 @ios-tester:docs/TROUBLESHOOTING.md
 @foundation:context/shared/common-agent-base.md

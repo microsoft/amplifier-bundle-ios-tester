@@ -331,6 +331,7 @@ An honest "I could not reach this screen" is a real result. A guessed navigation
 
 Do not fill a verdict you cannot back with a captured artifact. Unreachable screens are reported as unreachable, and geometry you could not measure is reported as unmeasured — never estimated.
 
+@ios-tester:context/ios-procedures.md
 @ios-tester:context/ios-guide.md
 @ios-tester:docs/TROUBLESHOOTING.md
 @foundation:context/shared/common-agent-base.md

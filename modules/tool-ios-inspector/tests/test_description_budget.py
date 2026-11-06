@@ -11,9 +11,9 @@ quietly trimmed away. Three distinct guarantees:
    pinned here (recorded at merge-base `a1fe589`): any edit at all, even a
    same-length one, fails.
 3. **Fidelity** -- the field names, config keys, operation names and quoted
-   contracts that carry behaviour must still appear somewhere in the session
-   head (tool description + parameter descriptions + awareness), so a future
-   trimming pass cannot drop `tap_point_note` or `screenshot_timeout_s` and
+   contracts remain in the tool surface or complete specialist procedures.
+   Every specialist imports those procedures; general awareness is orientation.
+   A trimming pass cannot drop `tap_point_note` or `screenshot_timeout_s` and
    still go green.
 """
 
@@ -29,6 +29,7 @@ from amplifier_module_tool_ios_inspector import IosInspectorTool
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
 AWARENESS_PATH = REPO_ROOT / "context" / "ios-awareness.md"
+PROCEDURES_PATH = REPO_ROOT / "context" / "ios-procedures.md"
 
 # --------------------------------------------------------------------------
 # Recorded ceilings (lean values). Lower them when you shrink something.
@@ -36,7 +37,7 @@ AWARENESS_PATH = REPO_ROOT / "context" / "ios-awareness.md"
 
 TOOL_DESCRIPTION_CEILING = 5138
 WIRE_BLOCK_CEILING = 9245  # json.dumps({name, description, input_schema})
-AWARENESS_CEILING = 3367  # characters
+AWARENESS_CEILING = 1000  # characters; detailed procedures are specialist context
 
 #: Per-parameter budget. The ~600-char standard applies to every one of them.
 PARAM_BUDGET = 600
@@ -85,7 +86,7 @@ OVER_BUDGET = {
     ),
 }
 
-#: Identifier-shaped semantics that must survive anywhere in the session head.
+#: Identifier-shaped semantics that must survive in the specialist's context.
 REQUIRED_TOKENS = (
     "ssh_host",
     "frame_points",
@@ -192,6 +193,23 @@ def head(tool: IosInspectorTool, params: dict[str, str], awareness: str) -> str:
     return "\n".join([tool.description, *params.values(), awareness])
 
 
+@pytest.fixture(scope="module")
+def specialist_head(head: str) -> str:
+    return head + "\n" + PROCEDURES_PATH.read_text(encoding="utf-8")
+
+
+def test_each_specialist_receives_the_procedures_without_general_injection():
+    for agent in (REPO_ROOT / "agents").glob("*.md"):
+        assert "@ios-tester:context/ios-procedures.md" in agent.read_text()
+    behavior = (REPO_ROOT / "behaviors/ios-tester.yaml").read_text()
+    assert "ios-awareness.md" in behavior and "ios-procedures.md" not in behavior
+    awareness = AWARENESS_PATH.read_text()
+    assert "[iOS procedures](ios-procedures.md)" in awareness
+    assert "@ios-tester:context/ios-procedures.md" not in awareness
+    assert "UDID" in awareness and "points/pixels" in awareness
+    assert "read-only" in awareness and "cannot tap" in awareness
+
+
 # --------------------------------------------------------------------------
 # 1. Ratchet
 # --------------------------------------------------------------------------
@@ -294,9 +312,9 @@ def test_descriptions_lead_with_a_trigger_not_a_preamble(
 
 @pytest.mark.parametrize("token", REQUIRED_TOKENS)
 def test_required_identifier_semantics_survive_every_future_trim(
-    head: str, token: str
+    specialist_head: str, token: str
 ) -> None:
-    assert token in head, (
+    assert token in specialist_head, (
         f"{token!r} disappeared from the session head. It names a returned "
         "field, a config key or an operation -- a caller that cannot see it "
         "cannot use it."
@@ -305,9 +323,9 @@ def test_required_identifier_semantics_survive_every_future_trim(
 
 @pytest.mark.parametrize("phrase", REQUIRED_PHRASES)
 def test_required_prose_contracts_survive_every_future_trim(
-    head: str, phrase: str
+    specialist_head: str, phrase: str
 ) -> None:
-    assert phrase in head, (
+    assert phrase in specialist_head, (
         f"{phrase!r} disappeared from the session head. It is a behaviour, a "
         "guarantee or a failure mode, not decoration."
     )
